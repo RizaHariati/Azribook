@@ -1,0 +1,27 @@
+/* _basic colors */
+$dark-clr-1: #18191a;
+$dark-clr-2: #242526;
+$dark-clr-3: #3a3b3c;
+$dark-clr-3-hover: #565757;
+
+$light-clr-1: #e5e5e5;
+$light-clr-2: #c4c4c4;
+$light-clr-3: #ffffff;
+
+$accent-clr-1: #c1436d;
+$accent-clr-2: #f4abaa;
+
+$font-family-1: "Roboto", sans-serif;
+$font-family-2: "Ruda", sans-serif;
+
+$radius-small: 4px;
+$radius-big: 8px;
+
+$transition: all 0.1s ease-in;
+
+@mixin flex($direction, $justify) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  flex-direction: $direction;
+}

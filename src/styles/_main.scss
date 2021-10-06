@@ -1,0 +1,118 @@
+@import "setting";
+
+.main-container {
+  background-color: $dark-clr-1;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 7fr 3fr;
+}
+
+.main-left {
+  background-color: burlywood;
+}
+// ----Main Mid----
+.main-mid {
+  background-color: $dark-clr-1;
+  @include flex(column, flex-start);
+}
+.mid-container {
+  margin-top: 50px;
+  width: 80%;
+}
+.story-container {
+  width: 100%;
+  aspect-ratio: 6.2/2;
+  @include flex(row, space-between);
+  grid-gap: 0.6rem;
+}
+.story {
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: $radius-big;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 80% 20%;
+  border: none;
+  p {
+    height: 100%;
+    line-height: 40px;
+    font-size: 0.9em;
+    grid-row: 2;
+
+    text-align: center;
+    color: $light-clr-3;
+    background-color: #00000056;
+    font-weight: 300;
+  }
+  img {
+    position: absolute;
+    top: 10px;
+    left: 10%;
+    width: 35%;
+    height: auto;
+    border-radius: 35px;
+    border: 3px solid $accent-clr-1;
+  }
+}
+.story-account {
+  grid-template-rows: 70% 30%;
+  p {
+    height: 100%;
+    line-height: 90px;
+    grid-row: 2;
+    text-align: center;
+    color: $light-clr-3;
+    background-color: $dark-clr-3;
+    font-weight: 300;
+  }
+  img {
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+  }
+}
+// -----Story-----
+
+.main-right {
+  background-color: burlywood;
+}
+
+// ----Select User-----
+
+.select-users-container {
+  grid-column: 2;
+  width: 100%;
+  margin-top: 2rem;
+  grid-gap: 2rem;
+  @include flex(column, center);
+}
+
+.select-users {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+.select-user {
+  cursor: pointer;
+  @include flex(row, flex-start);
+  background-color: $dark-clr-3;
+  color: $light-clr-2;
+  height: 60px;
+  border-radius: 60px;
+  padding-left: 5px;
+  grid-gap: 1rem;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  &:hover {
+    background-color: $dark-clr-3-hover;
+  }
+}

@@ -1,0 +1,11 @@
+button {
+  background-color: $primaryBtn;
+  color: $textColor;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  &::after {
+    content: " haloooo";
+    color: black;
+  }
+}

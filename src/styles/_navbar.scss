@@ -1,0 +1,142 @@
+@import "setting";
+.navbar-container {
+  height: 3.5rem;
+  width: 100%;
+  background-color: $dark-clr-2;
+  color: $light-clr-1;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  grid-gap: 1rem;
+}
+
+//--------left nav bar----------
+.nav-left {
+  color: $light-clr-3;
+
+  @include flex(row, left);
+  grid-gap: 1rem;
+}
+.logo {
+  cursor: pointer;
+}
+.search {
+  background-color: $dark-clr-3;
+  @include flex(row, left);
+  height: 38px;
+  border-radius: 38px;
+  padding: 0 1rem;
+  width: 80%;
+
+  input {
+    background-color: $dark-clr-3;
+    border: none;
+    color: $light-clr-3;
+    font-size: 14px;
+    text-indent: 1rem;
+    &::placeholder {
+      color: $light-clr-2;
+    }
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+//--------mid nav bar----------
+.nav-mid {
+  color: $light-clr-3;
+  @include flex(row, center);
+  grid-gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+.other {
+  height: 100%;
+}
+.btn-other {
+  cursor: pointer;
+  width: 100px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  transition: $transition;
+  border-radius: $radius-big;
+  border-bottom: 4px solid $dark-clr-2;
+
+  &:hover {
+    background-color: $dark-clr-3;
+  }
+  &:focus {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: 4px solid $accent-clr-1;
+  }
+}
+.more {
+  display: none;
+}
+
+//--------right nav bar----------
+.nav-right {
+  color: $light-clr-3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-gap: 0.5rem;
+}
+
+.create {
+  display: none;
+}
+
+.nav-links {
+  @include flex(row, center);
+}
+
+.link {
+  cursor: pointer;
+  background-color: $dark-clr-3;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 38px;
+  transition: $transition;
+  grid-gap: 10px;
+  @include flex(row, center);
+  &:hover {
+    background-color: $dark-clr-3-hover;
+  }
+  img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.profile {
+  .link {
+    padding-left: 5px;
+    padding-right: 10px;
+    width: auto;
+    height: 38px;
+    color: $light-clr-1;
+    img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .game {
+    display: none;
+  }
+  .more {
+    display: block;
+  }
+}

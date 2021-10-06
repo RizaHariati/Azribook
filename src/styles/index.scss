@@ -1,0 +1,43 @@
+@import "navbar";
+@import "setting";
+@import "main";
+
+// @mixin flex($background, $ffamily) {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   background-color: $background;
+//   font-family: $ffamily;
+// }
+
+// body {
+//   background-color: var(--color);
+//   font-family: "Courier New", Courier, monospace;
+//   color: black;
+// }
+
+// .status {
+//   @include flex(skyblue, "verdana");
+// }
+
+// .account {
+//   @include flex(yellow, sansSerif);
+//   button {
+//     @extend button;
+//     background-color: chartreuse;
+//   }
+// }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  font-family: $font-family-1;
+  background-color: $dark-clr-1;
+}

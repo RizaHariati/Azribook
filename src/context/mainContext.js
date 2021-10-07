@@ -5,6 +5,7 @@ const baseURL = "https://dummyapi.io/data/v1/";
 const headers = { "app-id": "615d134132c9c40bf2a39437" };
 const userURL = `${baseURL + "user?page=1&limit=10"}`;
 const postURL = `${baseURL + "post?page=1&limit=20"}`;
+
 const AppProvider = ({ children }) => {
   const [baseData, setBaseData] = useState(null);
   const [userID, setUserID] = useState("0");
@@ -42,6 +43,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchData();
   }, []);
+
   useEffect(() => {
     if (userID === "0") {
       console.log("pick one user");

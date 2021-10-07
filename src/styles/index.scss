@@ -1,7 +1,7 @@
 @import "navbar";
 @import "setting";
 @import "main";
-
+@import "posting";
 // @mixin flex($background, $ffamily) {
 //   display: flex;
 //   align-items: center;
@@ -36,8 +36,16 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  letter-spacing: 1px;
 }
 body {
   font-family: $font-family-1;
   background-color: $dark-clr-1;
+  color: $light-clr-3;
+}
+
+.loading-container {
+  grid-column: 2;
+  color: $light-clr-2;
+  @include flex(row, center);
 }

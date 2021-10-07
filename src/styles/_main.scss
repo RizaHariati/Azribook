@@ -3,9 +3,9 @@
 .main-container {
   background-color: $dark-clr-1;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 3.5rem);
   display: grid;
-  grid-template-columns: 3fr 7fr 3fr;
+  grid-template-columns: 3fr 6fr 3fr;
 }
 
 .main-left {
@@ -13,15 +13,65 @@
 }
 // ----Main Mid----
 .main-mid {
+  width: 100%;
   background-color: $dark-clr-1;
   @include flex(column, flex-start);
+  grid-gap: 1.5rem;
 }
-.mid-container {
-  margin-top: 50px;
-  width: 80%;
+
+// --------Posting---------
+.posting-container {
+  width: 70%;
 }
-.story-container {
+.posting-content {
   width: 100%;
+  border-radius: $radius-big;
+  background-color: $dark-clr-2;
+  @include flex(column, space-between);
+  padding: 0.6rem 1rem;
+  .line {
+    @include line;
+  }
+}
+.posting-form {
+  background-color: $dark-clr-3;
+  @include flex(row, left);
+  height: 42px;
+  border-radius: 42px;
+  padding: 0 0.5rem;
+  width: 100%;
+  input {
+    width: 100%;
+    @include input;
+    font-size: 16px;
+  }
+}
+.btn-image {
+  @include btn-image(36px, 36px);
+}
+.posting-types {
+  width: 100%;
+  height: 42px;
+  @include flex(row, space-between);
+  grid-gap: 1rem;
+}
+.btn-post {
+  border: transparent;
+  border-radius: $radius-big;
+  width: 100%;
+  height: 100%;
+  color: $light-clr-2;
+  @include flex(row, center);
+  background-color: transparent;
+  transition: $transition;
+  &:hover {
+    background-color: $dark-clr-3;
+  }
+}
+// --------Story-------
+.story-container {
+  margin-top: 2rem;
+  width: 70%;
   aspect-ratio: 6.2/2;
   @include flex(row, space-between);
   grid-gap: 0.6rem;
@@ -42,7 +92,6 @@
     line-height: 40px;
     font-size: 0.9em;
     grid-row: 2;
-
     text-align: center;
     color: $light-clr-3;
     background-color: #00000056;
@@ -76,7 +125,8 @@
     border: none;
   }
 }
-// -----Story-----
+
+// -----Main Right-----
 
 .main-right {
   background-color: burlywood;
@@ -87,13 +137,13 @@
 .select-users-container {
   grid-column: 2;
   width: 100%;
-  margin-top: 2rem;
   grid-gap: 2rem;
   @include flex(column, center);
 }
 
 .select-users {
   width: 80%;
+  min-width: 550px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;

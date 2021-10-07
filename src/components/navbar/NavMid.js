@@ -1,19 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { navOthers } from "../../data/navbar-data";
-
+import { useNavContext } from "../../context/navContext";
 const NavMid = () => {
-  const [selectOther, setSelectOther] = useState("other-1");
-
-  const handleClick = (e) => {
-    const id = e.currentTarget.id;
-    if (selectOther === "id") {
-      setSelectOther("other-1");
-    } else {
-      setSelectOther(id);
-    }
-  };
-
+  const { handleClick, handleMouse, mouseOver, selectOther, setMouseOver } =
+    useNavContext();
   return (
     <div className="nav-mid">
       {navOthers.map((item) => {
@@ -21,7 +12,14 @@ const NavMid = () => {
         return (
           <div key={id} className="nav-other other">
             <Link to={link}>
-              <button className="btn-other" id={id} onClick={handleClick}>
+              <button
+                className="btn-other"
+                id={id}
+                onClick={handleClick}
+                onMouseEnter={handleMouse}
+                onMouseLeave={() => setMouseOver(null)}
+              >
+                {mouseOver === id && <p>{name}</p>}
                 <img
                   src={
                     selectOther === id
@@ -38,7 +36,13 @@ const NavMid = () => {
 
       <div className="game other">
         <Link to="/">
-          <button className="btn-other" id="other-5" onClick={handleClick}>
+          <button
+            className="btn-other"
+            id="other-5"
+            onClick={handleClick}
+            onMouseEnter={handleMouse}
+            onMouseLeave={() => setMouseOver(null)}
+          >
             <img
               src={
                 selectOther === "other-5"
@@ -47,12 +51,19 @@ const NavMid = () => {
               }
               alt="logo"
             />
+            {mouseOver === "other-5" && <p>games</p>}
           </button>
         </Link>
       </div>
       <div className="more other">
         <Link to="/">
-          <button className="btn-other" id="other-6" onClick={handleClick}>
+          <button
+            className="btn-other"
+            id="other-6"
+            onClick={handleClick}
+            onMouseEnter={handleMouse}
+            onMouseLeave={() => setMouseOver(null)}
+          >
             <img
               src={
                 selectOther === "other-6"
@@ -61,6 +72,7 @@ const NavMid = () => {
               }
               alt="logo"
             />
+            {mouseOver === "other-6" && <p>more</p>}
           </button>
         </Link>
       </div>

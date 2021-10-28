@@ -1,27 +1,34 @@
 @import "setting";
-
+.container {
+  position: relative;
+  top: 0;
+}
 .main-container {
+  // position: absolute;
+  top: 3.5rem;
   background-color: $dark-clr-1;
   width: 100%;
-  min-height: calc(100vh - 3.5rem);
+  height: calc(100vh - 3.5rem);
   display: grid;
   grid-template-columns: 3fr 6fr 3fr;
 }
 
-.main-left {
-  background-color: burlywood;
-}
 // ----Main Mid----
 .main-mid {
+  position: relative;
+  top: 3.5rem;
   width: 100%;
+  overflow-y: scroll;
   background-color: $dark-clr-1;
   @include flex(column, flex-start);
   grid-gap: 1.5rem;
+  @include scrollbar;
+  z-index: 0;
 }
 
 // --------Posting---------
 .posting-container {
-  width: 70%;
+  @include mid-main-width;
 }
 .posting-content {
   width: 100%;
@@ -34,24 +41,25 @@
   }
 }
 .posting-form {
-  background-color: $dark-clr-3;
-  @include flex(row, left);
-  height: 42px;
-  border-radius: 42px;
-  padding: 0 0.5rem;
+  @include flex(row, l);
   width: 100%;
+
   input {
     width: 100%;
     @include input;
-    font-size: 16px;
+    height: 38px;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 15px;
   }
 }
 .btn-image {
-  @include btn-image(36px, 36px);
+  @include btn-image(38px, 38px);
 }
-.posting-types {
+.posting-btn-container {
+  // margin: 5px 0;
   width: 100%;
-  height: 42px;
+  height: 36px;
   @include flex(row, space-between);
   grid-gap: 1rem;
 }
@@ -67,12 +75,16 @@
   &:hover {
     background-color: $dark-clr-3;
   }
+  p {
+    font-size: 12px;
+    font-weight: 500;
+  }
 }
 // --------Story-------
 .story-container {
-  margin-top: 2rem;
-  width: 70%;
-  aspect-ratio: 6.2/2;
+  margin-top: 1.5rem;
+  @include mid-main-width;
+  aspect-ratio: 6/2;
   @include flex(row, space-between);
   grid-gap: 0.6rem;
 }
@@ -126,30 +138,50 @@
   }
 }
 
-// -----Main Right-----
-
-.main-right {
-  background-color: burlywood;
-}
-
 // ----Select User-----
 
 .select-users-container {
-  grid-column: 2;
+  display: grid;
+
+  top: 3.5rem;
+  height: 100vh;
   width: 100%;
   grid-gap: 2rem;
   @include flex(column, center);
 }
-
+.select-users-content {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  grid-gap: 3rem;
+}
+.select-users-banner {
+  max-width: 400px;
+  letter-spacing: 1px;
+  @include flex(column, center);
+  h2 {
+    font-weight: 400;
+    color: $light-clr-2;
+    span {
+      color: $accent-clr-1;
+      font-family: $font-family-2;
+    }
+  }
+}
 .select-users {
-  width: 80%;
+  width: 90%;
+  max-width: 650px;
   min-width: 550px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
+  grid-gap: 1.5rem;
+}
+.select-user-link {
+  height: 60px;
 }
 .select-user {
   cursor: pointer;
+  width: 100%;
+  height: 100%;
   @include flex(row, flex-start);
   background-color: $dark-clr-3;
   color: $light-clr-2;

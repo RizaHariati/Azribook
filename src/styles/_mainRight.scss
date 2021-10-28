@@ -1,0 +1,140 @@
+@import "setting";
+// -----Main Right-----
+
+.main-right {
+  position: relative;
+  top: 3.5rem;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: $dark-clr-1;
+  color: $light-clr-3;
+  @include scrollbar;
+  width: 100%;
+  padding: 1rem;
+}
+
+.main-right-links {
+  width: 100%;
+  @include flex(column, flex-start);
+  align-items: flex-start;
+  .line {
+    @include line;
+    width: 100%;
+  }
+  .header {
+    width: 100%;
+    // padding: 1rem;
+    padding-top: 0.5rem;
+    @include flex(row, space-between);
+    button {
+      background-color: transparent;
+      border: transparent;
+      color: $accent-clr-1;
+      &:hover {
+        border-bottom: 1px solid $accent-clr-1;
+      }
+    }
+    h4 {
+      color: $light-clr-2;
+    }
+  }
+}
+
+.link-link-right {
+  height: 45px;
+  width: 90%;
+  background-color: transparent;
+  border: transparent;
+}
+.main-right-link {
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+  @include flex(row, flex-start);
+  transition: $transition;
+  background-color: transparent;
+  border: transparent;
+  img {
+    width: 30px;
+    height: 30px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .sponsored-image {
+    width: 100px;
+    height: 100px;
+    border-radius: $radius-big;
+  }
+  .text {
+    width: 40%;
+  }
+  p {
+    color: $light-clr-1;
+    text-transform: capitalize;
+  }
+  &:hover {
+    border-radius: $radius-big;
+    background-color: $dark-clr-3;
+  }
+}
+
+.contacts-btn-container {
+  @include flex(row, center);
+  .contact-btn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    z-index: 1;
+    img {
+      @include img(22px, 22px);
+    }
+    &:hover {
+      background-color: $dark-clr-3;
+      border-bottom: transparent !important;
+    }
+    p {
+      @include hover;
+      padding: 0 1rem;
+      white-space: nowrap;
+      width: fit-content;
+      left: 100%;
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.contact-detail {
+  position: fixed;
+  @include flex(row, space-between);
+  z-index: 1;
+  width: 350px;
+  color: $light-clr-1;
+  transform: translate(-110%, -20%);
+  padding: 1rem;
+  background-color: $dark-clr-2;
+  border-radius: $radius-big;
+  border: 1px solid $dark-clr-3;
+  img {
+    @include img(80px, 80px);
+    border: 3px solid $accent-clr-1;
+  }
+}
+.contact-infos {
+  color: $light-clr-2;
+  @include flex(column, flex-start);
+  align-items: flex-start;
+}
+
+.contact-info {
+  @include flex(row, flex-start);
+  img {
+    @include img(20px, 20px);
+    border-radius: 0;
+    border: none;
+  }
+}

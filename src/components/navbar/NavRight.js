@@ -1,28 +1,35 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 import { navLinks } from "../../data/navbar-data";
 import { useNavContext } from "../../context/navContext";
+import { Link } from "react-router-dom";
+import { useGlobalContext } from "../../context/appContext";
 
-const NavRight = ({ userProfile }) => {
+const NavRight = () => {
+  const { userProfile } = useGlobalContext();
   const { handleMouse, mouseOver, setMouseOver } = useNavContext();
   const [selectLinks, setSelectLinks] = useState(null);
-  const { firstName, picture } = userProfile;
+
+  const params = useParams().id;
+
   const handleLinks = (e) => {
     const id = e.currentTarget.id;
-
     if (selectLinks === id) {
       setSelectLinks(null);
     } else {
       setSelectLinks(id);
     }
   };
+
+  if (!userProfile) return <div></div>;
+
   return (
     <div className="nav-right">
       <div className="profile links">
-        <Link to="/account">
+        <Link to={`/main/${params}/account`}>
           <button className="link" id="link-3">
-            <img src={picture} alt={firstName} />
-            <h4>{firstName}</h4>
+            <img src={userProfile.picture} alt={userProfile.firstName} />
+            <h4>{userProfile.firstName}</h4>
           </button>
         </Link>
       </div>
@@ -32,7 +39,7 @@ const NavRight = ({ userProfile }) => {
           className="link"
           id="link-5"
           onClick={handleLinks}
-          onMouseEnter={handleMouse}
+          onMouseEnter={() => handleMouse}
           onMouseLeave={() => setMouseOver(null)}
         >
           <img

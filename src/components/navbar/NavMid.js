@@ -1,17 +1,22 @@
 import React from "react";
+import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { navOthers } from "../../data/navbar-data";
 import { useNavContext } from "../../context/navContext";
+
 const NavMid = () => {
   const { handleClick, handleMouse, mouseOver, selectOther, setMouseOver } =
     useNavContext();
+  const location = useLocation().pathname;
+
   return (
     <div className="nav-mid">
       {navOthers.map((item) => {
         const { id, name, url, hover, link } = item;
+
         return (
           <div key={id} className="nav-other other">
-            <Link to={link}>
+            <Link to={url === "home" ? location.substring(0, 30) : `/${link}`}>
               <button
                 className="btn-other"
                 id={id}
@@ -35,7 +40,7 @@ const NavMid = () => {
       })}
 
       <div className="game other">
-        <Link to="/">
+        <a href="https://www.facebook.com/gaming/">
           <button
             className="btn-other"
             id="other-5"
@@ -53,7 +58,7 @@ const NavMid = () => {
             />
             {mouseOver === "other-5" && <p>games</p>}
           </button>
-        </Link>
+        </a>
       </div>
       <div className="more other">
         <Link to="/">

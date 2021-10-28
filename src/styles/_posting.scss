@@ -1,24 +1,32 @@
 @import "setting";
 .timeline-container {
-  width: 70%;
+  width: fit-content;
+  @include mid-main-width;
 }
 
 .timeline-content {
   width: 100%;
-  height: 100px;
+  width: fit-content;
   background-color: $dark-clr-2;
+  overflow: hidden;
   border-radius: $radius-big;
   margin-bottom: 1rem;
-  padding: 0.6rem 1rem;
 }
 
 .timeline {
+  width: 100%;
   .line {
     @include line;
+  }
+  .posting-btn-container {
+    padding: 0rem 1rem;
+    margin: 5px 0;
   }
 }
 
 .tl-post-header {
+  width: 100%;
+  padding: 0.6rem 1rem;
   @include flex(row, space-between);
 }
 .tl-btn {
@@ -28,9 +36,16 @@
 }
 .tl-id {
   margin-right: auto;
-  h4,
+  line-height: 14px;
+  @include flex(column, space-between);
+  align-items: flex-start;
+  h4 {
+    font-size: 14px;
+    font-weight: 400;
+  }
   p {
-    font-size: 0.8rem;
+    font-size: 10px;
+    color: $light-clr-2;
   }
 }
 .tl-more {
@@ -40,5 +55,50 @@
   transition: $transition;
   &:hover {
     background-color: $dark-clr-3;
+  }
+}
+
+.tl-post-body {
+  @include flex(column, space-between);
+  align-items: flex-start;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  p {
+    padding: 0.6rem 1rem;
+  }
+}
+
+.tl-likes {
+  img {
+    @include img(20px, 20px);
+  }
+  @include flex(row, flex-start);
+}
+
+.tl-post-icons {
+  color: $light-clr-2;
+  padding: 1rem;
+  @include flex(row, space-between);
+  p {
+    &:hover {
+      border-bottom: 1px solid $light-clr-2;
+    }
+  }
+}
+
+.timeline-comment {
+  @include mid-main-width;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  .posting-form {
+    .btn-image {
+      @include btn-image(30px, 30px);
+    }
+    input {
+      height: 34px;
+    }
   }
 }

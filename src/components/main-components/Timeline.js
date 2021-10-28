@@ -1,59 +1,50 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
+import TimeLinePosting from "./TimeLinePosting";
+import TimeLineComment from "./TimeLineComment";
+import TimeLineReaction from "./TimeLineReaction";
 
-const Timeline = ({ user, timeline }) => {
+const Timeline = ({ setPageNumber, allPosts, loadAllPost, hasMore }) => {
+  const observe = useRef();
+  const lastElement = useCallback(
+    (node) => {
+      if (loadAllPost) return;
+      if (observe.current) return observe.current.disconnect();
+      observe.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting & hasMore) {
+          return setPageNumber((prevPage) => prevPage + 1);
+        }
+      });
+
+      if (node) observe.current.observe(node);
+    },
+    [loadAllPost, setPageNumber, hasMore]
+  );
+
   return (
     <div className="timeline-container">
-      {timeline
-        .filter((post, index) => index <= 7)
-        .map((post) => {
-          const { id, owner, publishDate } = post;
+      {allPosts.map((post, postIndex) => {
+        const { id, owner } = post;
 
+        if (allPosts.length === postIndex + 1) {
           return (
-            <div key={id} className="timeline-content">
-              <Posting owner={owner} publishDate={publishDate} />
-              <Reaction />
-              <Comment />
+            <div key={id} ref={lastElement} className="timeline-content">
+              <TimeLinePosting owner={owner} {...post} />
+              <TimeLineReaction />
+              <TimeLineComment />
             </div>
           );
-        })}
+        } else {
+          return (
+            <div key={id} className="timeline-content">
+              <TimeLinePosting owner={owner} {...post} />
+              <TimeLineReaction />
+              <TimeLineComment />
+            </div>
+          );
+        }
+      })}
     </div>
   );
 };
 
 export default Timeline;
-
-const Posting = ({ owner, publishDate }) => {
-  const { id, firstName, lastName, picture } = owner;
-
-  return (
-    <div className="timeline-post timeline">
-      <div className="tl-post-header">
-        <button className="tl-btn" id={id}>
-          <img src={picture} alt={firstName} />
-        </button>
-        <div className="tl-id">
-          <h4>{`${firstName} ${lastName}`}</h4>
-          <p>{publishDate}</p>
-        </div>
-        <button className="tl-more">
-          <img src="/assets/images/icons/main/more.svg" alt="more" />
-        </button>
-      </div>
-      <div className="tl-post-body">body</div>
-      <div className="tl-post-icons">icons</div>
-      <div className="line"></div>
-    </div>
-  );
-};
-
-const Reaction = () => {
-  return (
-    <div className="timeline-reaction timeline">
-      <div className="line"></div>
-    </div>
-  );
-};
-
-const Comment = () => {
-  return <div className="timeline-comment timeline">comment</div>;
-};

@@ -1,25 +1,11 @@
 @import "navbar";
 @import "setting";
 @import "main";
+@import "mainLeft";
+@import "mainRight";
 @import "posting";
-// @mixin flex($background, $ffamily) {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-//   background-color: $background;
-//   font-family: $ffamily;
-// }
-
-// body {
-//   background-color: var(--color);
-//   font-family: "Courier New", Courier, monospace;
-//   color: black;
-// }
-
-// .status {
-//   @include flex(skyblue, "verdana");
-// }
+@import "account";
+@import "navSubmenu";
 
 // .account {
 //   @include flex(yellow, sansSerif);
@@ -36,16 +22,63 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  letter-spacing: 1px;
 }
 body {
   font-family: $font-family-1;
   background-color: $dark-clr-1;
   color: $light-clr-3;
 }
-
+a {
+  color: $accent-clr-1;
+}
 .loading-container {
   grid-column: 2;
+  width: 100%;
+  height: 100vh;
+  grid-column: 0;
   color: $light-clr-2;
-  @include flex(row, center);
+  @include flex(column, center);
+  grid-gap: 1rem;
+  text-align: center;
+}
+
+.svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  animation: rotate 2s linear infinite;
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    fill: $dark-clr-1;
+    stroke-width: 10;
+    stroke: $accent-clr-1;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    animation: animate 3s linear infinite;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    stroke-dashoffset: 440;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  51% {
+    stroke-dashoffset: 880;
+  }
 }

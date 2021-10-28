@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavLeft = () => {
   const [showSearch, setShowSearch] = useState(true);
+
   return (
     <div className="nav-left">
       <Link to="/">

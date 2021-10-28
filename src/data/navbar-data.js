@@ -4,7 +4,7 @@ const navOthers = [
     name: "Home",
     url: "home",
     hover: "home-hover",
-    link: "/",
+    link: "/main",
   },
   {
     id: "other-2",
@@ -25,7 +25,7 @@ const navOthers = [
     name: "Groups",
     url: "group",
     hover: "group-hover",
-    link: "/",
+    link: "*",
   },
 ];
 

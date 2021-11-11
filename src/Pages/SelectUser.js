@@ -32,6 +32,7 @@ const SelectUser = () => {
             .map((user) => {
               const { id, picture, firstName, lastName } = user;
               return (
+                // when clicked go to file selected user
                 <Link key={id} to={`/main/${id}`} className="select-user-link">
                   <button className="select-user">
                     <img src={picture} alt={firstName} />
@@ -41,6 +42,13 @@ const SelectUser = () => {
               );
             })}
         </div>
+      </div>
+      <div className="thank-you">
+        All the data is thanks to{" "}
+        <a href="https://dummyapi.io/" target="_blank" rel="noreferrer">
+          DUMMYAPI.IO
+        </a>
+        , ready to use API Service full of dummy fake data
       </div>
     </div>
   );

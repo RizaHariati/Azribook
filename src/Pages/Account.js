@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Posting from "../components/main-components/Posting";
 import AccountHeader from "../components/account/AccountHeader";
 import AccountTimeLine from "../components/account/AccountTimeLine";
@@ -13,8 +13,11 @@ const Account = () => {
   const params = useParams();
   const headerRef = useRef(null);
 
-  const getID = useCallback(
-    (par) => {
+  useEffect(() => {
+    let cancel = "";
+    const getID = async () => {
+      const par = await params;
+      if (cancel) console.log("object");
       if (!par) {
         return;
       } else {
@@ -24,29 +27,27 @@ const Account = () => {
           else setPickID(par.id);
         }
       }
-    },
-    [setPickID, setmainID]
-  );
-  useEffect(() => {
-    getID(params);
-  }, [params, getID]);
+    };
+    getID();
+    return () => {
+      cancel = true;
+    };
+  }, [params]);
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log();
-    }, 100);
     if (headerRef.current === null) return;
-    if (pickID) {
+    if (!pickID) return;
+    else {
       const handleScroll = (window.onscroll = () => {
         if (headerRef.current === null) {
-          return setShowHeader(false);
+          setShowHeader(false);
         } else {
           let container = headerRef.current.getBoundingClientRect().height;
           let windowY = window.pageYOffset;
-          if (windowY > container - 50) {
-            return setShowHeader(true);
+          if (windowY > container - 100) {
+            setShowHeader(true);
           } else {
-            return setShowHeader(false);
+            setShowHeader(false);
           }
         }
       });

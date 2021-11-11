@@ -4,38 +4,25 @@ const navOthers = [
     name: "Home",
     url: "home",
     hover: "home-hover",
-    link: "/main",
+    link: "",
   },
   {
     id: "other-2",
     name: "Pages",
     url: "pages",
     hover: "pages-hover",
-    link: "*",
+    link: "pages",
   },
   {
     id: "other-3",
-    name: "Watch",
-    url: "watch",
-    hover: "watch-hover",
-    link: "*",
-  },
-  {
-    id: "other-4",
-    name: "Groups",
-    url: "group",
-    hover: "group-hover",
+    name: "Marketplace",
+    url: "marketplace",
+    hover: "marketplace-hover",
     link: "*",
   },
 ];
 
 const navLinks = [
-  {
-    id: "link-1",
-    name: "Messenger",
-    url: "message",
-    hover: "message-hover",
-  },
   {
     id: "link-2",
     name: "Notifications",

@@ -22,6 +22,7 @@ const useFetchUserProfile = (userID) => {
     })
       .then((res) => {
         const data = res.data.data;
+
         setUserPosts(data);
         setloadingData(false);
       })
@@ -39,7 +40,7 @@ const useFetchUserProfile = (userID) => {
     };
   }, [userID]);
 
-  return { loadingData, userPosts, error };
+  return { loadingData, userPosts, error, setUserPosts, setloadingData };
 };
 
 export default useFetchUserProfile;

@@ -1,6 +1,6 @@
 import React, { useState, memo, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../context/appContext";
+import Footer from "../Footer";
 const imageAddress = "/assets/images/account-image/";
 const defaultImage = "/assets/images/account-image/cover.jpg";
 
@@ -17,16 +17,7 @@ const AccountInfo = () => {
           <Friends />
           <Photos guestPosts={guestPosts} />
 
-          <div className="main-left-footer">
-            <p>copyright belongs to Facebook &#169; 2021</p>
-            <p>
-              mockup website by Riza Hariati for &hearts; AzriCoding &hearts;
-            </p>
-            <p>
-              mockup data is from{" "}
-              <a href="https://dummyapi.io/explorer">DUMMYAPI.IO</a>
-            </p>
-          </div>
+          <Footer />
         </div>
       </div>
     );
@@ -40,7 +31,7 @@ const Header = memo(({ guestPosts }) => {
     <div className="account-info-list">
       <div className="account-list-header">
         <h3>Intro</h3>
-        <Link to="/error"> edit</Link>
+        {/* <Link to="/error"> edit</Link> */}
       </div>
       <div className="account-list-links">
         <img src={`${imageAddress}feed.svg`} alt="feed" />
@@ -56,7 +47,7 @@ const Header = memo(({ guestPosts }) => {
       </div>
       <button className="account-btn">Edit details</button>
       <button className="account-btn">Add Hobbies</button>
-      <div className="account-list-images ">
+      <div className="account-list-images header">
         {guestPosts
           .filter((item, index) => index < 3)
           .map((item, index) => {
@@ -94,7 +85,7 @@ const Friends = () => {
       <div className="account-info-list">
         <div className="account-list-header">
           <h3>Friends</h3>
-          <Link to="/error">See All Friends</Link>
+          {/* <Link to="/error">See All Friends</Link> */}
         </div>
         <div className="account-list-images ">
           {friends.map((friend, index) => {
@@ -122,7 +113,7 @@ const Photos = memo(({ guestPosts }) => {
     <div className="account-info-list">
       <div className="account-list-header">
         <h3>Photos</h3>
-        <Link to="/error">See All Photos</Link>
+        {/* <Link to="/error">See All Photos</Link> */}
       </div>
       <div className="account-list-images ">
         {guestPosts.map((photo, index) => {

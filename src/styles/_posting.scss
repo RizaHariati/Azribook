@@ -6,7 +6,7 @@
 
 .timeline-content {
   width: 100%;
-  width: fit-content;
+  // width: fit-content;
   background-color: $dark-clr-2;
   overflow: hidden;
   border-radius: $radius-big;
@@ -24,29 +24,48 @@
   }
 }
 
+.tl-reaction-btn {
+  cursor: pointer;
+
+  border: transparent;
+  border-radius: $radius-big;
+  width: 100%;
+  height: 100%;
+  color: $light-clr-2;
+  @include flex(row, center);
+  background-color: transparent;
+  transition: $transition;
+  &:hover {
+    background-color: $dark-clr-3;
+  }
+}
+
 .tl-post-header {
+  position: relative;
+  z-index: 2;
   width: 100%;
   padding: 0.6rem 1rem;
   @include flex(row, space-between);
+  border-bottom: $line-border;
 }
 .tl-btn {
+  position: relative;
+  z-index: 2;
   width: auto;
-  @include btn-image(32px, 32px);
-  //   margin-right: 1rem;
+  background-color: transparent;
+  border: transparent;
+  margin-right: 1rem;
+
+  img {
+    @include img(40px, 40px);
+  }
 }
 .tl-id {
+  position: relative;
   margin-right: auto;
   line-height: 14px;
   @include flex(column, space-between);
   align-items: flex-start;
-  h4 {
-    font-size: 14px;
-    font-weight: 400;
-  }
-  p {
-    font-size: 10px;
-    color: $light-clr-2;
-  }
 }
 .tl-more {
   @include btn-image(32px, 32px);
@@ -72,6 +91,7 @@
 }
 
 .tl-likes {
+  grid-column: 1;
   img {
     @include img(20px, 20px);
   }
@@ -81,7 +101,8 @@
 .tl-post-icons {
   color: $light-clr-2;
   padding: 1rem;
-  @include flex(row, space-between);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   p {
     &:hover {
       border-bottom: 1px solid $light-clr-2;
@@ -89,10 +110,16 @@
   }
 }
 
+.tl-comments-count {
+  grid-column: 2;
+  @include flex(row, flex-end);
+}
+
 .timeline-comment {
   @include mid-main-width;
   width: 100%;
   padding: 0.5rem 1rem;
+  @include flex(column, space-between);
   .posting-form {
     .btn-image {
       @include btn-image(30px, 30px);
@@ -101,4 +128,163 @@
       height: 34px;
     }
   }
+}
+
+.comment-text {
+  @include flex(column, flex-start);
+
+  align-items: flex-start;
+  background-color: $dark-clr-3;
+  border-radius: $radius-big;
+  padding: 0.5rem;
+  p {
+    width: 100%;
+    letter-spacing: 1px;
+  }
+}
+
+.tl-del-container {
+  position: absolute;
+  min-width: 300px;
+  top: 3rem;
+  right: 1rem;
+  border-radius: $radius-big;
+  background-color: $dark-clr-2;
+  border: $line-border;
+  @include flex(column, flex-start);
+  padding: 1rem;
+}
+
+.tl-del-btn {
+  cursor: pointer;
+  width: 100%;
+  height: 3rem;
+  border-radius: $radius-big;
+  background-color: transparent;
+  border: transparent;
+  padding: 0.5rem;
+  color: $light-clr-2;
+  @include flex(row, flex-start);
+  .info {
+    text-align: left;
+  }
+  &:hover {
+    background-color: $dark-clr-3-hover;
+  }
+}
+// =====================Timeline Modals=============================
+.tl-modal-container {
+  position: fixed;
+  top: 3.5rem;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 3.5rem);
+  @include flex(row, center);
+  background-color: $dark-clr-1-transparent;
+  z-index: 10 !important;
+  overflow: hidden;
+}
+
+.tl-modal-content {
+  padding: 1rem 3rem;
+  width: 500px;
+  background-color: $dark-clr-2;
+  border-radius: $radius-big;
+  @include flex(column, center);
+  border: $line-border;
+  h2 {
+    width: 100%;
+    border-bottom: $line-border;
+    text-align: center;
+  }
+}
+.tl-modal-userInformation {
+  width: 100%;
+  border-bottom: $line-border;
+  @include flex(row, left);
+  img {
+    @include img(30px, 30px);
+  }
+}
+.tl-modal-btn {
+  cursor: pointer;
+  background-color: $dark-clr-3;
+  color: $light-clr-1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: $radius-small;
+  transition: $transition;
+  width: 100%;
+  &:hover {
+    background-color: $dark-clr-3-hover;
+  }
+}
+.tl-modal-input {
+  width: 100%;
+  height: 60px;
+  padding: 0.5rem;
+  color: $light-clr-1;
+  background-color: $dark-clr-2;
+  border: transparent;
+  font-family: $font-family-1;
+  @include scrollbar;
+}
+.tl-modal-data {
+  @include flex(row, center);
+  grid-gap: 1rem;
+  img {
+    background-color: $dark-clr-3;
+    @include img(50px, 50px);
+    border-radius: $radius-small;
+    padding: 10px;
+  }
+}
+.tl-modal-form {
+  width: 100%;
+  @include flex(column, center);
+}
+.tl-modal-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: $radius-big;
+}
+
+// =====================Timeline Owner Modal=============================
+.timeline-posting-owner {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+
+  @include flex(row, space-between);
+  width: 350px;
+  color: $light-clr-1;
+  padding: 1rem;
+  background-color: $dark-clr-2;
+  border-radius: $radius-big;
+  border: 1px solid $dark-clr-3;
+  img {
+    @include img(80px, 80px);
+    border: 3px solid $accent-clr-1;
+  }
+}
+.tl-posting-contact-infos {
+  color: $light-clr-2;
+  @include flex(column, flex-start);
+}
+
+.tl-posting-contact-info {
+  @include flex(column, center);
+  align-items: flex-start;
+  img {
+    @include img(20px, 20px);
+
+    border-radius: 0;
+    border: none;
+  }
+}
+
+.tl-contact-info {
+  @include flex(row, flex-start);
 }

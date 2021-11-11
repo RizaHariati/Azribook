@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Contact from "../Contact";
 import { useParams } from "react-router";
-import {
-  mainSponsor,
-  mainShortcuts,
-  mainRightContacts,
-} from "../../../data/main-data";
+import { mainSponsor, mainShortcuts } from "../../../data/main-data";
 import { useGlobalContext } from "../../../context/appContext";
 
 const MainRight = () => {
@@ -44,7 +40,7 @@ const Sponsored = () => {
             />
             <div className="text">
               <p>{name}</p>
-              <p>{link}</p>
+              <h5>{link}</h5>
             </div>
           </a>
         );
@@ -63,7 +59,6 @@ const YourPages = () => {
         <div className="contacts-btn-container">
           <button id="yourpage" className="contact-btn">
             <img src={`/assets/images/icons/main/more.svg`} alt="more" />
-            {/* <p>{text}</p> */}
           </button>
         </div>
       </div>
@@ -79,7 +74,6 @@ const YourPages = () => {
 const Contacts = () => {
   const { allUsers } = useGlobalContext();
   const [filterUsers, setfilterUsers] = useState(null);
-  const [showText, setShowText] = useState(false);
 
   let params = useParams().id;
 
@@ -96,25 +90,6 @@ const Contacts = () => {
     <div className="main-right-links">
       <div className="header">
         <h4>Contacts</h4>
-        {/* ================These are buttons on headers=============== */}
-        <div className="contacts-btn-container">
-          {mainRightContacts.map((contact) => {
-            const { id, url, text, name } = contact;
-
-            return (
-              <button
-                key={id}
-                id={id}
-                className="contact-btn"
-                onMouseEnter={() => setShowText(id)}
-                onMouseLeave={() => setShowText(null)}
-              >
-                <img src={`/assets/images/icons/main/${url}.svg`} alt={name} />
-                {showText === id && <p>{text}</p>}
-              </button>
-            );
-          })}
-        </div>
       </div>
       {filterUsers.map((data) => {
         const { id } = data;

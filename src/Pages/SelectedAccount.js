@@ -9,14 +9,25 @@ import useFetchUserProfile from "../fetch/useFetchUserProfile";
 import { useParams } from "react-router";
 import { NavProvider } from "../context/navContext";
 import { useGlobalContext } from "../context/appContext";
+import Pages from "./Pages";
+import TimeLineModal from "../components/main-components/TimeLineModal";
 
 const SelectedAccount = () => {
-  const id = useParams().id;
+  const { id } = useParams();
   const { loading, error, profile } = useFetchUserProfile(id);
-  const { getParams } = useGlobalContext();
+  const { getParams, showTimelineModal } = useGlobalContext();
+
+  const getID = async () => {
+    await getParams(id);
+  };
+
   useEffect(() => {
-    getParams(id);
-  }, [id, getParams]);
+    // other code
+    getID();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   if (loading) {
     return <Loading />;
   } else {
@@ -30,15 +41,22 @@ const SelectedAccount = () => {
               <Nav />
             </Route>
           </NavProvider>
+          {showTimelineModal && <TimeLineModal />}
           <Switch>
             <Route exact path="/main/:id">
               <Main />
+            </Route>
+            <Route exact path="/main/:id/pages">
+              <Pages />
             </Route>
             <Route exact path={`/main/:id/account`}>
               <Account profile={profile} />
             </Route>
             <Route path={`/main/:id/guest/:guest`}>
               <Account profile={profile} />
+            </Route>
+            <Route path="*">
+              <Error />
             </Route>
           </Switch>
         </div>

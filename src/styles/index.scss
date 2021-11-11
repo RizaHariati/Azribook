@@ -6,6 +6,7 @@
 @import "posting";
 @import "account";
 @import "navSubmenu";
+@import "pages";
 
 // .account {
 //   @include flex(yellow, sansSerif);
@@ -81,4 +82,9 @@ a {
   51% {
     stroke-dashoffset: 880;
   }
+}
+
+.thank-you {
+  margin-top: 2rem;
+  line-height: 1rem;
 }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Contact = ({ data }) => {
   const [guestID, setGuestID] = useState("60d0fe4f5311236168a109ca");
-  const [position, setPosition] = useState({ x: "0", y: "0" });
+  const [position, setPosition] = useState({ x: "400px", y: "0" });
 
   const params = useParams().id;
 
@@ -23,7 +23,7 @@ const Contact = ({ data }) => {
         <button
           className="main-right-link"
           onMouseEnter={(e) => checkPosition(e, id)}
-          onMouseLeave={() => setPosition({ x: "0", y: "0" })}
+          onMouseLeave={() => setPosition({ x: "400px", y: "0" })}
         >
           <img src={picture} alt="account" />
           <p>{`${firstName} ${lastName}`}</p>
@@ -46,8 +46,14 @@ const Modal = ({ position, data }) => {
       className="contact-detail"
       style={
         position.y > document.body.clientHeight
-          ? { left: `${position.x}px`, top: document.body.clientHeight - 50 }
-          : { left: `${position.x}px`, top: `${position.y}px` }
+          ? {
+              left: `${position.x}px`,
+              top: document.body.clientHeight - 50,
+            }
+          : {
+              left: `${position.x}px`,
+              top: `${position.y}px`,
+            }
       }
     >
       <img src={picture} alt={firstName} />
@@ -60,7 +66,7 @@ const Modal = ({ position, data }) => {
             <img src={`/assets/images/icons/main/male.svg`} alt={firstName} />
           )}
           <p>
-            Member since :{" "}
+            Member since :
             {`${id.substring(4, 5)} ${id.substring(4, 6)} 200${id.substring(
               13,
               14

@@ -5,6 +5,7 @@ const url_USER = " https://dummyapi.io/data/v1/user/";
 const header = { "app-id": "615d134132c9c40bf2a39437" };
 
 const AccountHeader = ({ pickID }) => {
+  const { allUsers } = useGlobalContext();
   const [accountHeader, setAccountHeader] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -46,20 +47,32 @@ const AccountHeader = ({ pickID }) => {
     };
   }, [pickID, getGuestPosts]);
   if (loading) return <div></div>;
-  else if (error) return <div></div>;
+  if (error) return <div></div>;
+  if (!accountHeader) return <div></div>;
   else {
     const { image, text, owner } = accountHeader;
     const { firstName, lastName, picture } = owner;
     return (
       <div className="account-header">
-        <img src={image} alt={firstName} />
+        <img src={image} alt={firstName} className="account-big-background" />
         <div className="header-owner">
           <div className="header-owner-picture">
             <img src={picture} alt={firstName} />
           </div>
-          <h2>{`${firstName} ${lastName}`}</h2>
-          <p>{text}</p>
-          <p className="accent-btn">Edit</p>
+          <div className="header-owner-info">
+            <h2>{`${firstName} ${lastName}`}</h2>
+            <p>{text}</p>
+            <div className="header-friends">
+              {allUsers &&
+                allUsers
+                  .filter((user, index) => index < 12)
+                  .map((user) => {
+                    const { id, picture, firstName } = user;
+                    console.log(user);
+                    return <img key={id} src={picture} alt={firstName} />;
+                  })}
+            </div>
+          </div>
         </div>
       </div>
     );

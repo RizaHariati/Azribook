@@ -1,1 +1,125 @@
 @import "setting";
+
+.navright-submenu-container {
+  position: fixed;
+
+  top: 3.5rem;
+  right: 1rem;
+  z-index: -2;
+  background-color: $dark-clr-2;
+  border-radius: $radius-big;
+  border: $line-border;
+  border-top: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  h1 {
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  &.menu {
+    padding: 1rem;
+    background-color: $dark-clr-3;
+    img {
+      width: 25px;
+      height: 25px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+// =================right-submenu-Menu===============
+
+.right-submenu-content {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  padding: 1rem;
+  &.menu {
+    grid-template-columns: 300px auto;
+    padding: 0;
+    grid-gap: 1rem !important;
+  }
+}
+
+.ri-sub-menu {
+  max-height: 70vh;
+  max-width: 300px;
+  background-color: $dark-clr-2;
+  border-radius: $radius-big;
+  overflow: hidden;
+  overflow-y: auto;
+  @include scrollbar;
+  @include flex(column, flex-start);
+  grid-gap: 0;
+  align-items: flex-start;
+}
+.ri-sub-menu-data {
+  min-width: 300px;
+  padding-bottom: 0.5rem;
+  border-bottom: $line-border;
+  width: 100%;
+  @include flex(column, flex-start);
+  align-items: flex-start;
+  h3 {
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+  &.menu {
+    min-width: 0;
+    padding: 0.5rem;
+  }
+}
+.ri-sub-link {
+  width: 100%;
+}
+.ri-sub-menu-item {
+  display: flex;
+  align-items: center;
+  cursor: text;
+  color: $light-clr-1;
+  border-radius: $radius-big;
+  padding: 0.3rem;
+  transition: $transition;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto;
+  &:hover {
+    background-color: $dark-clr-3;
+  }
+
+  &.account {
+    cursor: pointer;
+    @include flex(row, flex-start);
+    img {
+      background-color: transparent;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.ri-sub-menu-icon {
+  height: 30px;
+  width: 30px;
+  background-color: $dark-clr-3-hover;
+  @include flex(row, center);
+  border-radius: 50%;
+  img {
+    height: 60% !important;
+    width: 60% !important;
+  }
+}
+.ri-sub-menu-text {
+  span {
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: $light-clr-2;
+  }
+}

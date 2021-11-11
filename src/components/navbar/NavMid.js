@@ -14,29 +14,55 @@ const NavMid = () => {
       {navOthers.map((item) => {
         const { id, name, url, hover, link } = item;
 
-        return (
-          <div key={id} className="nav-other other">
-            <Link to={url === "home" ? location.substring(0, 30) : `/${link}`}>
-              <button
-                className="btn-other"
-                id={id}
-                onClick={handleClick}
-                onMouseEnter={handleMouse}
-                onMouseLeave={() => setMouseOver(null)}
-              >
-                {mouseOver === id && <p>{name}</p>}
-                <img
-                  src={
-                    selectOther === id
-                      ? `/assets/images/icons/navbar/${hover}.svg`
-                      : `/assets/images/icons/navbar/${url}.svg`
-                  }
-                  alt={name}
-                />
-              </button>
-            </Link>
-          </div>
-        );
+        if (link === "*") {
+          return (
+            <div key={id} className={`nav-other other ${id}`}>
+              <Link to={link}>
+                <button
+                  className="btn-other"
+                  id={id}
+                  onClick={handleClick}
+                  onMouseEnter={handleMouse}
+                  onMouseLeave={() => setMouseOver(null)}
+                >
+                  {mouseOver === id && <p>{name}</p>}
+                  <img
+                    src={
+                      selectOther === id
+                        ? `/assets/images/icons/navbar/${hover}.svg`
+                        : `/assets/images/icons/navbar/${url}.svg`
+                    }
+                    alt={name}
+                  />
+                </button>
+              </Link>
+            </div>
+          );
+        } else {
+          return (
+            <div key={id} className={`nav-other other ${id}`}>
+              <Link to={location.substring(0, 30) + `/${link}`}>
+                <button
+                  className="btn-other"
+                  id={id}
+                  onClick={handleClick}
+                  onMouseEnter={handleMouse}
+                  onMouseLeave={() => setMouseOver(null)}
+                >
+                  {mouseOver === id && <p>{name}</p>}
+                  <img
+                    src={
+                      selectOther === id
+                        ? `/assets/images/icons/navbar/${hover}.svg`
+                        : `/assets/images/icons/navbar/${url}.svg`
+                    }
+                    alt={name}
+                  />
+                </button>
+              </Link>
+            </div>
+          );
+        }
       })}
 
       <div className="game other">

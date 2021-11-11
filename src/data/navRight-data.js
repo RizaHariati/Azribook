@@ -2,31 +2,36 @@ const menuBtn_Menu = [
   {
     id: "menu-1",
     title: "social",
-    icon: "icon",
+
     links: [
       {
         index: "soc-1",
         link: "events",
+        icon: "events",
         text: "Organise or find events and other things to do online and nearby",
       },
       {
         index: "soc-2",
         link: "friends",
+        icon: "friends",
         text: "Search for friends or people you may know",
       },
       {
         index: "soc-3",
         link: "groups",
+        icon: "groups",
         text: "connect with people who share your interests",
       },
       {
         index: "soc-4",
         link: "News Feed",
+        icon: "newsfeed",
         text: "see relevant posts from people and Pages that you follow",
       },
       {
         index: "soc-5",
         link: "Pages",
+        icon: "pages",
         text: "discover and connect with businesses on Facebook",
       },
     ],
@@ -34,22 +39,24 @@ const menuBtn_Menu = [
   {
     id: "menu-2",
     title: "entertainment",
-    icon: "icon",
 
     links: [
       {
         index: "ent-1",
         link: "Gaming videos",
+        icon: "gaming",
         text: "Watch and connect with your favourite games and streames",
       },
       {
         index: "ent-2",
         link: "Play games",
+        icon: "games",
         text: "Play your favourite games",
       },
       {
         index: "ent-3",
         link: "watch",
+        icon: "watch",
         text: "a video destination personalised to your interest and connections",
       },
     ],
@@ -57,11 +64,12 @@ const menuBtn_Menu = [
   {
     id: "menu-3",
     title: "shopping",
-    icon: "icon",
+
     links: [
       {
         index: "shp-1",
         link: "Marketplace",
+        icon: "marketplace",
         text: "Buy and sell in your community",
       },
     ],
@@ -69,26 +77,30 @@ const menuBtn_Menu = [
   {
     id: "menu-4",
     title: "personal",
-    icon: "icon",
+
     links: [
       {
         index: "per-1",
         link: "Recent ad activity",
+        icon: "adactivity",
         text: "See all of the ads you've interacted with on Facebook",
       },
       {
         index: "per-2",
         link: "Memories",
+        icon: "memories",
         text: "Browse your old photos, videos and posts on Facebook",
       },
       {
         index: "per-3",
         link: "Saved",
+        icon: "saved",
         text: "Find posts, photos, and videos that you've saved for later",
       },
       {
         index: "per-4",
         link: "Weather",
+        icon: "weather",
         text: "Check your local forecast and sign up for daily weather notifications",
       },
     ],
@@ -96,16 +108,18 @@ const menuBtn_Menu = [
   {
     id: "menu-5",
     title: "professional",
-    icon: "icon",
+
     links: [
       {
         index: "pro-1",
         link: "Ads",
+        icon: "ad",
         text: "Create, manage and track the performance of your ads",
       },
       {
         index: "pro-2",
         link: "Jobs",
+        icon: "Job",
         text: "Find a job that's right for you",
       },
     ],
@@ -113,26 +127,30 @@ const menuBtn_Menu = [
   {
     id: "menu-6",
     title: "Community resources",
-    icon: "icon",
+
     links: [
       {
         index: "com-1",
         link: "Climate Science centre",
+        icon: "climate",
         text: "Learn about climate change and its effects",
       },
       {
         index: "com-2",
         link: "COVID-19 Information Centre",
+        icon: "covid",
         text: "See the lates prevention tips, community resources and updates from health organistion",
       },
       {
         index: "com-3",
         link: "Crisis Response",
+        icon: "crisis",
         text: "Find the lates updates for recent crises heppening around the world",
       },
       {
         index: "com-4",
         link: "Fundraisers",
+        icon: "fundraiser",
         text: "Donate and raise money for charities and personal causes",
       },
     ],
@@ -140,16 +158,18 @@ const menuBtn_Menu = [
   {
     id: "menu-7",
     title: "More from Facebook",
-    icon: "icon",
+
     links: [
       {
         index: "mor-1",
         link: "messenger",
+        icon: "bi_messenger",
         text: "Chat to your friends and connections instantly",
       },
       {
         index: "mor-2",
         link: "Messenger Kids",
+        icon: "more",
         text: "Let children message close friends and family",
       },
     ],
@@ -168,7 +188,7 @@ const menuBtn_Create = [
       {
         index: "cre-2",
         name: "Group Post",
-        icon: "grouppost",
+        icon: "postgroup",
       },
       {
         index: "cre-3",
@@ -188,7 +208,7 @@ const menuBtn_Create = [
       {
         index: "cre-5",
         name: "page",
-        icon: "page",
+        icon: "pages",
       },
       {
         index: "cre-6",
@@ -198,7 +218,7 @@ const menuBtn_Create = [
       {
         index: "cre-7",
         name: "group",
-        icon: "group",
+        icon: "groups",
       },
       {
         index: "cre-8",
@@ -208,15 +228,47 @@ const menuBtn_Create = [
       {
         index: "cre-9",
         name: "Marketplace listing",
-        icon: "marketplace listing",
+        icon: "marketplace",
       },
       {
         index: "cre-10",
         name: "job",
-        icon: "job",
+        icon: "jobs",
       },
     ],
   },
 ];
 
-export { menuBtn_Menu, menuBtn_Create };
+const menuBtn_Account = [
+  {
+    id: 1,
+    links: [
+      {
+        index: "acc-1",
+        name: "feedback",
+        icon: "feedback",
+      },
+    ],
+  },
+  {
+    id: 2,
+    links: [
+      {
+        index: "acc-2",
+        name: "settings & privacy",
+        icon: "setting",
+      },
+      {
+        index: "acc-3",
+        name: "Help & support",
+        icon: "help",
+      },
+      {
+        index: "acc-4",
+        name: "Display & accessibility",
+        icon: "display",
+      },
+    ],
+  },
+];
+export { menuBtn_Menu, menuBtn_Create, menuBtn_Account };

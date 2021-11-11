@@ -5,11 +5,13 @@
   position: relative;
   top: 3.5rem;
   width: 100%;
+  max-width: 350px;
+  margin-left: auto;
   overflow-y: scroll;
   background-color: $dark-clr-1;
   color: $light-clr-3;
   @include scrollbar;
-  width: 100%;
+
   padding: 1rem;
 }
 
@@ -41,12 +43,14 @@
 }
 
 .link-link-right {
+  transition: $transition;
   height: 45px;
   width: 90%;
   background-color: transparent;
   border: transparent;
 }
 .main-right-link {
+  transition: $transition;
   cursor: pointer;
   position: relative;
   padding: 0.5rem;
@@ -65,20 +69,26 @@
     overflow: hidden;
   }
   .sponsored-image {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: $radius-big;
   }
   .text {
     width: 40%;
   }
   p {
+    white-space: unset;
     color: $light-clr-1;
     text-transform: capitalize;
   }
   &:hover {
+    transition: $transition;
     border-radius: $radius-big;
     background-color: $dark-clr-3;
+    .contact-detail {
+      opacity: 1;
+      display: flex;
+    }
   }
 }
 
@@ -109,6 +119,7 @@
 }
 
 .contact-detail {
+  opacity: 0;
   position: fixed;
   @include flex(row, space-between);
   z-index: 1;
@@ -119,6 +130,7 @@
   background-color: $dark-clr-2;
   border-radius: $radius-big;
   border: 1px solid $dark-clr-3;
+  display: none;
   img {
     @include img(80px, 80px);
     border: 3px solid $accent-clr-1;

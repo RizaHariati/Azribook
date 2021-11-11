@@ -12,20 +12,31 @@ const useFetchAllPosts = (pageNumber) => {
 
   useEffect(() => {
     let cancel;
-    setLoadAllPosts(true);
+    setLoadAllPosts(false);
     setErrorAll(false);
-    axios({
-      method: "GET",
-      url: URL_ALLPOST,
-      headers: header,
-      params: { page: pageNumber, limit: 4 },
-      cancelToken: new axios.CancelToken((c) => (cancel = c)),
-    })
-      .then((res) => {
+    axios
+      .all([
+        axios({
+          method: "GET",
+          url: URL_ALLPOST,
+          headers: header,
+          params: { page: pageNumber, limit: 8 },
+          cancelToken: new axios.CancelToken((c) => (cancel = c)),
+        }),
+        axios({
+          method: "GET",
+          url: `https://dummyapi.io/data/v1/post?created=1`,
+          headers: header,
+          params: { limit: 5 },
+        }),
+      ])
+      .then(([res1, res2]) => {
+        const data1 = res1.data.data;
+        const data2 = res2.data.data.filter((item, index) => index < 2);
         setAllPosts((prevPosts) => {
-          return [...new Set([...prevPosts, ...res.data.data])];
+          return [...data2, ...new Set([...prevPosts, ...data1])];
         });
-        setHasMore(res.data.data.length > 0);
+        setHasMore(data1.length > 0);
         setLoadAllPosts(false);
       })
       .catch((error) => {
@@ -42,7 +53,14 @@ const useFetchAllPosts = (pageNumber) => {
     };
   }, [pageNumber]);
 
-  return { loadAllPosts, errorAll, allPosts, hasMore };
+  return {
+    loadAllPosts,
+    errorAll,
+    allPosts,
+    setAllPosts,
+    hasMore,
+    setLoadAllPosts,
+  };
 };
 
 export default useFetchAllPosts;

@@ -4,6 +4,9 @@ import { navLinks } from "../../data/navbar-data";
 import { useNavContext } from "../../context/navContext";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../context/appContext";
+import RightMenu from "./navRightModals/RightMenu";
+import RightNotification from "./navRightModals/RightNotification";
+import RightAccount from "./navRightModals/RightAccount";
 
 const NavRight = () => {
   const { userProfile } = useGlobalContext();
@@ -98,6 +101,10 @@ const NavRight = () => {
           </div>
         );
       })}
+
+      {selectLinks === "link-2" && <RightNotification />}
+      {selectLinks === "link-3" && <RightAccount />}
+      {selectLinks === "link-4" && <RightMenu />}
     </div>
   );
 };

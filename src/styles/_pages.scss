@@ -1,0 +1,104 @@
+@import "setting";
+.pages-container {
+  position: relative;
+
+  background-color: $dark-clr-1;
+  width: 100%;
+  height: calc(100vh - 3.5rem);
+  display: grid;
+  grid-template-columns: 350px auto;
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.pages-left-container {
+  position: relative;
+  top: 3.5rem;
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: $dark-clr-2;
+  color: $light-clr-3;
+  @include scrollbar;
+  width: 100%;
+  padding: 1rem;
+}
+
+.pages-item {
+  grid-template-columns: 50px auto 50px;
+  background: $dark-clr-3;
+  padding: 0.5rem;
+}
+
+.pages-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.page-create {
+  display: bl;
+  align-items: center;
+  cursor: text;
+  color: $accent-clr-1;
+  background-color: $accent-clr-1-focus;
+  border-radius: $radius-big;
+  padding: 0.3rem;
+  transition: $transition;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto;
+  h4 {
+    grid-column: 2;
+    white-space: nowrap;
+  }
+}
+
+.pages-right-container {
+  position: relative;
+  padding-top: 5rem;
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  color: $light-clr-3;
+  @include flex(column, flex-start);
+
+  grid-gap: 1rem;
+  @include scrollbar;
+}
+
+.pages-right-item {
+  padding: 0.2rem 1rem;
+  width: 80%;
+  max-width: 700px;
+  @include flex(row, space-between);
+  background-color: $dark-clr-3;
+  color: $light-clr-1;
+  border-radius: $radius-big;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  h3 {
+    margin-left: 1rem;
+    margin-right: auto;
+  }
+}
+
+.pages-btn-container {
+  @include flex(row, space-between);
+  grid-gap: 1rem;
+}
+
+.pages-notification {
+  @include flex(row, space-between);
+  grid-gap: 0.2rem;
+  img {
+    @include img(20px, 20px);
+    object-fit: cover;
+  }
+}

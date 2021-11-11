@@ -1,19 +1,46 @@
-useEffect(() => {
-  if (headerRef.current == null) return;
-  else {
-    window.onscroll = () => {
-      let a = window.pageYOffset;
-      const rect = headerRef.current.getBoundingClientRect();
-      if (!rect) return;
-      else {
-        const b = rect.height;
-        if (!b) return;
-        if (a < b - 50) {
-          setShowHeader(false);
-        } else {
-          setShowHeader(true);
-        }
-      }
-    };
+import React, { useState, useEffect } from "react";
+import Loading from "../../Loading";
+import Error from "../../../Pages/Error";
+import Story from "../Story";
+import Posting from "../Posting";
+import Timeline from "../Timeline";
+import useFetchAllPosts from "../../../fetch/useFetchAllPosts";
+
+const MainMid = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const { loadAllPosts, errorAll, allPosts, hasMore } =
+    useFetchAllPosts(pageNumber);
+
+  if (loadAllPosts) {
+    return (
+      <div className="timeline">
+        <Loading />
+      </div>
+    );
+  } else {
+    if (errorAll) {
+      return (
+        <div className="timeline">
+          <Error />
+        </div>
+      );
+    } else {
+      return (
+        <div className="main-mid">
+          <Story allPosts={allPosts} />
+          <Posting />
+          {/* <NewTimeline/> */}
+          <Timeline
+            setPageNumber={setPageNumber}
+            allPosts={allPosts}
+            loadAllPosts={loadAllPosts}
+            hasMore={hasMore}
+          />
+        </div>
+      );
+    }
   }
-}, [headerRef]);
+};
+
+export default MainMid;

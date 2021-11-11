@@ -104,4 +104,34 @@ const mainRightContacts = [
     text: "options",
   },
 ];
-export { mainLeftLinks, mainShortcuts, mainSponsor, mainRightContacts };
+
+const pagesData = [
+  {
+    index: "pag-1",
+    name: "business suite",
+    icon: "business",
+  },
+  {
+    index: "pag-2",
+    name: "Discover",
+    icon: "discover",
+  },
+  {
+    index: "pag-3",
+    name: "liked pages",
+    icon: "like",
+  },
+  {
+    index: "pag-4",
+    name: "invitations",
+    icon: "invitation",
+  },
+];
+
+export {
+  mainLeftLinks,
+  mainShortcuts,
+  mainSponsor,
+  mainRightContacts,
+  pagesData,
+};

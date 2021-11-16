@@ -12,7 +12,7 @@ const useFetchAllPosts = (pageNumber) => {
 
   useEffect(() => {
     let cancel;
-    setLoadAllPosts(false);
+    setLoadAllPosts(true);
     setErrorAll(false);
     axios
       .all([
@@ -33,8 +33,13 @@ const useFetchAllPosts = (pageNumber) => {
       .then(([res1, res2]) => {
         const data1 = res1.data.data;
         const data2 = res2.data.data.filter((item, index) => index < 2);
+
         setAllPosts((prevPosts) => {
-          return [...data2, ...new Set([...prevPosts, ...data1])];
+          if (!prevPosts) {
+            return [...data2, ...data1];
+          } else {
+            return [...new Set([...prevPosts, ...data1])];
+          }
         });
         setHasMore(data1.length > 0);
         setLoadAllPosts(false);

@@ -23,14 +23,15 @@ const Timeline = () => {
 
   const { loadAllPosts, errorAll, allPosts, hasMore, setAllPosts } =
     useFetchAllPosts(pageNumber);
+
   const observe = useRef();
   const lastElement = useCallback(
     (node) => {
       if (loadAllPosts) return;
-      if (observe.current) return observe.current.disconnect();
+      if (observe.current) observe.current.disconnect();
       observe.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting & hasMore) {
-          return setPageNumber((prevPage) => prevPage + 1);
+          setPageNumber((prevPage) => prevPage + 1);
         }
       });
 
@@ -146,15 +147,16 @@ const Timeline = () => {
     <div className="timeline-container">
       {allPosts.map((post, postIndex) => {
         const { id } = post;
-        if (allPosts.length === postIndex + 1) {
+
+        if (postIndex + 1 === allPosts.length) {
           return (
-            <div key={id} ref={lastElement}>
+            <div className="timeline-contents" key={id} ref={lastElement}>
               <TimeLineEach props={post} posts={allPosts} />
             </div>
           );
         } else {
           return (
-            <div key={id}>
+            <div className="timeline-contents" key={id}>
               <TimeLineEach props={post} posts={allPosts} />
             </div>
           );

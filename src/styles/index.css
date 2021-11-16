@@ -2020,12 +2020,21 @@ h6 {
   width: 100%;
 }
 
+.timeline-contents {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 1rem;
+}
+
 .timeline-content {
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: #242526;
-  overflow: hidden;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .timeline {

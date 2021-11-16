@@ -3,14 +3,16 @@
   width: fit-content;
   @include mid-main-width;
 }
-
+.timeline-contents {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 1rem;
+}
 .timeline-content {
   width: 100%;
-  // width: fit-content;
+  height: fit-content;
   background-color: $dark-clr-2;
-  overflow: hidden;
   border-radius: $radius-big;
-  margin-bottom: 1rem;
 }
 
 .timeline {

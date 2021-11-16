@@ -39,7 +39,6 @@ const useFetchAllPosts = (pageNumber) => {
             return [...data2, ...data1];
           } else {
             const newData = [...new Set(data2.map((data) => data.id))];
-
             const filteredPost = prevPosts.filter((post) => {
               return !newData.includes(post.id);
             });
@@ -48,6 +47,7 @@ const useFetchAllPosts = (pageNumber) => {
         });
         setHasMore(data1.length > 0);
         setLoadAllPosts(false);
+        setErrorAll(false);
       })
       .catch((error) => {
         if (axios.isAxiosError) {

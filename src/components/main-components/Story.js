@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context/appContext";
 import axios from "axios";
+import { useHistory, useParams } from "react-router";
 
 const URL_ALLPOST = "https://dummyapi.io/data/v1/post?";
 const header = { "app-id": "615d134132c9c40bf2a39437" };
 
 const Story = () => {
   const [story, setStory] = useState([]);
+  const history = useHistory();
+  const params = useParams();
 
   useEffect(() => {
     const config = {
@@ -42,7 +45,14 @@ const Story = () => {
   else {
     return (
       <div className="story-container">
-        <div className="story">
+        <button
+          className="story"
+          onClick={() => {
+            if (params) {
+              history.push(`/main/${params.id}/account`);
+            }
+          }}
+        >
           <img
             src={userProfile.picture}
             alt={userProfile.firstName}
@@ -54,13 +64,13 @@ const Story = () => {
             className="story-owner user"
           />
           <p>create story</p>
-        </div>
-        {story.map((post) => {
+        </button>
+        {story.map((post, index) => {
           const { id, image, owner } = post;
           const { firstName, lastName } = owner;
 
           return (
-            <div key={id} className="story">
+            <div key={id} className={`story story-${index}`}>
               <img src={image} alt={id} className="story-background" />
               <img
                 src={owner.picture}

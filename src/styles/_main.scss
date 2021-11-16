@@ -3,6 +3,9 @@
   position: relative;
   top: 0;
 }
+@mixin mid-main-width {
+  width: 100%;
+}
 .main-container {
   position: relative;
   top: 0rem;
@@ -15,9 +18,7 @@
   z-index: 0;
   padding: 1rem;
 }
-@mixin mid-main-width {
-  width: 100%;
-}
+
 // ----Main Mid----
 .main-mid {
   position: relative;
@@ -89,8 +90,8 @@
   @include mid-main-width;
   @include flex(row, space-between);
   grid-gap: 0.6rem;
-  cursor: none;
 }
+
 .story {
   position: relative;
   height: 200px;
@@ -100,9 +101,9 @@
   display: grid;
   grid-template-rows: 6fr 1fr;
   background-color: $dark-clr-2;
-  z-index: -2;
+  z-index: 1;
   padding-top: 10%;
-  cursor: none;
+  border: none;
   p {
     grid-row: 2;
     align-items: center;
@@ -110,6 +111,9 @@
     color: $light-clr-3;
     text-shadow: 0px 1px 1px black;
   }
+}
+button.story {
+  cursor: pointer;
 }
 .story-owner {
   top: 1%;
@@ -131,6 +135,7 @@
   object-position: center;
   object-fit: cover;
   z-index: -1;
+
   &.user {
     height: 70%;
   }
@@ -138,23 +143,31 @@
 // ----Select User-----
 
 .select-users-container {
+  box-sizing: border-box;
   display: grid;
-  padding-top: 3.5rem;
-  min-height: calc(100vh - 3.5rem);
+  padding-top: 4rem;
+  height: 100vh;
   width: 100%;
-  grid-gap: 20px;
+
   @include flex(column, center);
+  grid-gap: 0px;
 }
 .select-users-content {
+  padding-inline: 5rem;
+  width: 100%;
+  height: 70vh;
   display: grid;
   grid-template-columns: 3fr 4fr;
-  grid-gap: 100px;
+  grid-gap: 1rem;
 }
 .select-users-banner {
-  max-width: 400px;
+  width: 100%;
+  height: 100%;
   letter-spacing: 1px;
   @include flex(column, center);
-  h2 {
+  h2,
+  h1 {
+    text-align: center;
     font-weight: 400;
     color: $light-clr-2;
     span {
@@ -164,16 +177,30 @@
   }
 }
 .select-users {
-  padding: 1rem;
-  width: 90%;
-  max-width: 650px;
-  min-width: 550px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  @include flex(row, flex-start);
   grid-gap: 1rem;
+  flex-wrap: wrap;
+  height: 100%;
+
+  overflow-y: scroll;
+  scrollbar-width: 5px;
+  -ms-overflow-style: 5px;
+
+  &::-webkit-scrollbar {
+    // display: none;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $dark-clr-3;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $dark-clr-2;
+  }
 }
 .select-user-link {
-  height: 50px;
+  width: 45%;
 }
 .select-user {
   cursor: pointer;
@@ -182,15 +209,15 @@
   @include flex(row, flex-start);
   background-color: $dark-clr-3;
   color: $light-clr-2;
-  height: 50px;
-  border-radius: 50px;
+  height: 40px;
+  border-radius: 40px;
   border: transparent;
   padding-left: 5px;
   grid-gap: 1rem;
   transition: $transition;
   img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
   }
   &:hover {
@@ -224,33 +251,15 @@
   .story {
     height: 150px;
   }
-
-  .select-users-container {
-    grid-gap: 0px;
-  }
+  // ========================== select user====================
   .select-users-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 0px;
+    padding-inline: 2.5rem;
+    grid-gap: 0.5rem;
   }
-  .select-users-banner {
-    text-align: center;
-    padding: 1rem;
-    width: 100%;
-    max-width: 650px;
-    min-width: 350px;
-  }
-  .select-users {
-    padding: 1rem;
-    width: 100%;
-    // max-width: 650px;
-    min-width: 350px;
-  }
+  // ========================== select user====================
   .thank-you {
-    padding: 1rem;
+    padding: 0rem;
     width: 100%;
-    max-width: 450px;
-
     text-align: center;
   }
 }
@@ -267,10 +276,61 @@
   .main-right {
     display: none;
   }
-
-  .select-users {
-    max-width: 350px;
-    margin-inline: auto;
+  .select-users-content {
+    width: 100%;
     grid-template-columns: 1fr;
+  }
+  .select-users-banner {
+    width: 60%;
+    margin-inline: auto;
+  }
+  .select-users {
+    justify-content: center;
+    grid-gap: 0.5rem;
+  }
+  .select-user-link {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-container {
+    padding: 0;
+  }
+  .main-mid {
+    padding: 1rem;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: visible;
+  }
+  .posting-content {
+    margin-top: 0rem;
+  }
+  .posting-btn-container {
+    p {
+      display: none;
+    }
+  }
+  .select-users-banner {
+    width: 100%;
+    margin-inline: auto;
+  }
+  .select-users-banner {
+    width: 80%;
+    margin-inline: auto;
+  }
+  .select-user-link {
+    width: 80%;
+  }
+  .story-container {
+    margin-top: 0.5rem;
+    @include flex(row, center);
+    height: 110px;
+  }
+  .story {
+    height: 110px;
+  }
+  .story-3 {
+    display: none;
   }
 }

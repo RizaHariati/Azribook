@@ -22,14 +22,4 @@ const navOthers = [
   },
 ];
 
-const navLinks = [
-  {
-    id: "link-2",
-    name: "Notifications",
-    url: "notification",
-    hover: "notification-hover",
-  },
-  { id: "link-3", name: "Account", url: "account", hover: "account-hover" },
-];
-
-export { navLinks, navOthers };
+export { navOthers };

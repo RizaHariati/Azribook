@@ -68,7 +68,7 @@ const AccountHeader = ({ pickID }) => {
                   .filter((user, index) => index < 12)
                   .map((user) => {
                     const { id, picture, firstName } = user;
-                    console.log(user);
+
                     return <img key={id} src={picture} alt={firstName} />;
                   })}
             </div>

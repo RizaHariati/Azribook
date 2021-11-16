@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import { navLinks } from "../../data/navbar-data";
 import { useNavContext } from "../../context/navContext";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../context/appContext";
 import RightMenu from "./navRightModals/RightMenu";
 import RightNotification from "./navRightModals/RightNotification";
 import RightAccount from "./navRightModals/RightAccount";
+import RightMainMenu from "./navRightModals/RightMainMenu";
+import RightCreate from "./navRightModals/RightCreate";
 
 const NavRight = () => {
   const { userProfile } = useGlobalContext();
-  const { handleMouse, mouseOver, setMouseOver } = useNavContext();
   const [selectLinks, setSelectLinks] = useState(null);
 
   const params = useParams().id;
@@ -37,76 +37,93 @@ const NavRight = () => {
         </Link>
       </div>
 
-      <div className="create links">
-        <button
-          className="link"
-          id="link-5"
-          onClick={handleLinks}
-          onMouseEnter={() => handleMouse}
-          onMouseLeave={() => setMouseOver(null)}
-        >
-          <img
-            src={
-              selectLinks === "link-5"
-                ? `/assets/images/icons/navbar/create-hover.svg`
-                : `/assets/images/icons/navbar/create.svg`
-            }
-            alt="menu"
-          />
-          {mouseOver === "link-5" && <p>create</p>}
-        </button>
-      </div>
+      <NavBtn
+        props={{
+          id: "other-6",
+          name: "more",
+          url: "more",
+          hover: "more-hover",
+        }}
+        handleLinks={handleLinks}
+        selectLinks={selectLinks}
+      />
+      <NavBtn
+        props={{
+          id: "link-5",
+          name: "create",
+          url: "create",
+          hover: "create-hover",
+        }}
+        handleLinks={handleLinks}
+        selectLinks={selectLinks}
+      />
+      <NavBtn
+        props={{
+          id: "link-4",
+          name: "menu",
+          url: "menu",
+          hover: "menu-hover",
+        }}
+        handleLinks={handleLinks}
+        selectLinks={selectLinks}
+      />
 
-      <div className="menu links">
-        <button
-          className="link"
-          id="link-4"
-          onClick={handleLinks}
-          onMouseEnter={handleMouse}
-          onMouseLeave={() => setMouseOver(null)}
-        >
-          <img
-            src={
-              selectLinks === "link-4"
-                ? `/assets/images/icons/navbar/menu-hover.svg`
-                : `/assets/images/icons/navbar/menu.svg`
-            }
-            alt="menu"
-          />
-          {mouseOver === "link-4" && <p>menu</p>}
-        </button>
-      </div>
+      <NavBtn
+        props={{
+          id: "link-2",
+          name: "notification",
+          url: "notification",
+          hover: "notification-hover",
+        }}
+        handleLinks={handleLinks}
+        selectLinks={selectLinks}
+      />
 
-      {navLinks.map((link) => {
-        const { id, name, url, hover } = link;
-        return (
-          <div key={id} className="links">
-            <button
-              className="link"
-              id={id}
-              onClick={handleLinks}
-              onMouseEnter={handleMouse}
-              onMouseLeave={() => setMouseOver(null)}
-            >
-              <img
-                src={
-                  selectLinks === id
-                    ? `/assets/images/icons/navbar/${hover}.svg`
-                    : `/assets/images/icons/navbar/${url}.svg`
-                }
-                alt={name}
-              />
-              {mouseOver === id && <p>{name}</p>}
-            </button>
-          </div>
-        );
-      })}
+      <NavBtn
+        props={{
+          id: "link-3",
+          name: "account",
+          url: "account",
+          hover: "account-hover",
+        }}
+        handleLinks={handleLinks}
+        selectLinks={selectLinks}
+      />
 
       {selectLinks === "link-2" && <RightNotification />}
       {selectLinks === "link-3" && <RightAccount />}
       {selectLinks === "link-4" && <RightMenu />}
+      {selectLinks === "link-5" && <RightCreate />}
+      {selectLinks === "other-6" && <RightMainMenu />}
     </div>
   );
 };
 
 export default NavRight;
+
+const NavBtn = ({ props, handleLinks, selectLinks }) => {
+  const { handleMouse, mouseOver, setMouseOver } = useNavContext();
+  const { id, name, url, hover } = props;
+
+  return (
+    <div className={`${name} links`}>
+      <button
+        className="link"
+        id={id}
+        onClick={handleLinks}
+        onMouseEnter={handleMouse}
+        onMouseLeave={() => setMouseOver(null)}
+      >
+        <img
+          src={
+            selectLinks === { id }
+              ? `/assets/images/icons/navbar/${hover}.svg`
+              : `/assets/images/icons/navbar/${url}.svg`
+          }
+          alt="menu"
+        />
+        {mouseOver === id && <p>{name}</p>}
+      </button>
+    </div>
+  );
+};

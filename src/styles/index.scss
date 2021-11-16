@@ -45,15 +45,15 @@ a {
 
 .svg {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   animation: rotate 2s linear infinite;
 
   .circle {
     width: 100%;
     height: 100%;
     fill: $dark-clr-1;
-    stroke-width: 10;
+    stroke-width: 4;
     stroke: $accent-clr-1;
     stroke-linecap: round;
     transform: translate(5px, 5px);
@@ -87,4 +87,34 @@ a {
 .thank-you {
   margin-top: 2rem;
   line-height: 1rem;
+}
+.error-container {
+  line-height: 1rem;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  height: 100vh;
+  grid-column: 0;
+  color: $light-clr-2;
+  @include flex(column, center);
+  grid-gap: 1rem;
+  text-align: center;
+  img {
+    height: 300px;
+    width: 300px;
+    object-position: center;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .error-container {
+    line-height: 0.5rem;
+    grid-column: 1;
+    width: 100vw;
+    img {
+      height: 250px;
+      width: 250px;
+    }
+  }
 }

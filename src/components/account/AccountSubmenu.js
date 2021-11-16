@@ -42,17 +42,12 @@ const AccountSubmenu = ({ showHeader }) => {
                   </button>
                 );
               })}
-
               <button
-                className={
-                  activeButton === "link-6"
-                    ? "account-sub-btn active"
-                    : "account-sub-btn"
-                }
+                className="account-sub-btn-more"
                 onClick={() => handleClick("link-6")}
               >
                 <img src={`${imageAddress}more.svg`} alt="more" />
-                <p>Edit Profile</p>
+                <p>more</p>
               </button>
             </div>
           )}

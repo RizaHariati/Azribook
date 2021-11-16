@@ -36,7 +36,7 @@ const SelectUser = () => {
                 <Link key={id} to={`/main/${id}`} className="select-user-link">
                   <button className="select-user">
                     <img src={picture} alt={firstName} />
-                    <h3>{`${firstName}  ${lastName}`}</h3>
+                    <h4>{`${firstName}  ${lastName}`}</h4>
                   </button>
                 </Link>
               );
@@ -44,11 +44,13 @@ const SelectUser = () => {
         </div>
       </div>
       <div className="thank-you">
-        All the data is thanks to{" "}
-        <a href="https://dummyapi.io/" target="_blank" rel="noreferrer">
-          DUMMYAPI.IO
-        </a>
-        , ready to use API Service full of dummy fake data
+        <p>
+          All the data is thanks to
+          <a href="https://dummyapi.io/" target="_blank" rel="noreferrer">
+            DUMMYAPI.IO
+          </a>
+          , ready to use API Service full of dummy fake data
+        </p>
       </div>
     </div>
   );

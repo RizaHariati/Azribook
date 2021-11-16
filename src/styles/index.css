@@ -1,11 +1,4 @@
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -20,24 +13,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -621,13 +621,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -642,24 +635,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -685,13 +685,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -706,24 +699,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -1172,8 +1172,8 @@ button.story {
   grid-gap: 0.5rem;
   background-color: #3a3b3c;
   color: #b6b3b3;
-  height: 40px;
-  border-radius: 40px;
+  height: 50px;
+  border-radius: 50px;
   border: transparent;
   padding-left: 5px;
   grid-gap: 1rem;
@@ -1182,8 +1182,8 @@ button.story {
 }
 
 .select-user img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -1230,6 +1230,17 @@ button.story {
 }
 
 @media screen and (max-width: 800px) {
+  .select-user {
+    height: 40px;
+    border-radius: 40px;
+    border: transparent;
+    padding-left: 5px;
+    grid-gap: 1rem;
+  }
+  .select-user img {
+    width: 30px;
+    height: 30px;
+  }
   .main-container {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1316,13 +1327,6 @@ button.story {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -1337,24 +1341,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -1567,13 +1578,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -1588,24 +1592,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -1950,13 +1961,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -1971,24 +1975,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -2679,13 +2690,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -2700,24 +2704,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -3460,13 +3471,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -3481,24 +3485,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {
@@ -3768,13 +3779,6 @@ h6 {
 }
 
 /* _basic colors */
-p {
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: #b6b3b3;
-}
-
 h1 {
   font-weight: 400;
   margin-bottom: 1rem;
@@ -3789,24 +3793,31 @@ h2 {
 h3 {
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
 }
 
 h4 {
   color: #e5e5e5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 h5 {
   letter-spacing: 0.5px;
   font-weight: 300;
   color: #b6b3b3;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 h6 {
   font-weight: 300;
   font-size: 10px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  color: #b6b3b3;
 }
 
 @media screen and (max-width: 1080px) {

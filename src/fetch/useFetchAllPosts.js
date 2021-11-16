@@ -38,7 +38,12 @@ const useFetchAllPosts = (pageNumber) => {
           if (!prevPosts) {
             return [...data2, ...data1];
           } else {
-            return [...new Set([...prevPosts, ...data1])];
+            const newData = [...new Set(data2.map((data) => data.id))];
+
+            const filteredPost = prevPosts.filter((post) => {
+              return !newData.includes(post.id);
+            });
+            return [...new Set([...data2, ...filteredPost, ...data1])];
           }
         });
         setHasMore(data1.length > 0);

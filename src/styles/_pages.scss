@@ -102,3 +102,24 @@
     object-fit: cover;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .pages-right-item {
+    padding: 0.5rem;
+    @include flex(column, center);
+    grid-gap: 0;
+    h3 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .pages-right-container {
+    display: none;
+  }
+  .pages-container {
+    grid-template-columns: 1fr;
+  }
+}

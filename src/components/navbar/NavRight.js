@@ -116,7 +116,7 @@ const NavBtn = ({ props, handleLinks, selectLinks }) => {
       >
         <img
           src={
-            selectLinks === { id }
+            selectLinks === id
               ? `/assets/images/icons/navbar/${hover}.svg`
               : `/assets/images/icons/navbar/${url}.svg`
           }

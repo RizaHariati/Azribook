@@ -6,10 +6,11 @@ const menuBtn_Menu = [
     links: [
       {
         index: "soc-1",
-        link: "events",
-        icon: "events",
-        text: "Organise or find events and other things to do online and nearby",
+        link: "Pages",
+        icon: "pages",
+        text: "discover and connect with businesses on Facebook",
       },
+
       {
         index: "soc-2",
         link: "friends",
@@ -30,14 +31,27 @@ const menuBtn_Menu = [
       },
       {
         index: "soc-5",
-        link: "Pages",
-        icon: "pages",
-        text: "discover and connect with businesses on Facebook",
+        link: "events",
+        icon: "events",
+        text: "Organise or find events and other things to do online and nearby",
       },
     ],
   },
   {
     id: "menu-2",
+    title: "shopping",
+
+    links: [
+      {
+        index: "shp-1",
+        link: "Marketplace",
+        icon: "marketplace",
+        text: "Buy and sell in your community",
+      },
+    ],
+  },
+  {
+    id: "menu-3",
     title: "entertainment",
 
     links: [
@@ -61,19 +75,7 @@ const menuBtn_Menu = [
       },
     ],
   },
-  {
-    id: "menu-3",
-    title: "shopping",
 
-    links: [
-      {
-        index: "shp-1",
-        link: "Marketplace",
-        icon: "marketplace",
-        text: "Buy and sell in your community",
-      },
-    ],
-  },
   {
     id: "menu-4",
     title: "personal",

@@ -13,6 +13,7 @@
   height: fit-content;
   background-color: $dark-clr-2;
   border-radius: $radius-big;
+  overflow: hidden;
 }
 
 .timeline {
@@ -106,7 +107,7 @@
   grid-template-columns: 1fr 1fr;
   p {
     &:hover {
-      border-bottom: 1px solid $light-clr-2;
+      border-bottom: $line-border;
     }
   }
 }
@@ -146,14 +147,14 @@
 
 .tl-del-container {
   position: absolute;
-  min-width: 300px;
+  min-width: 200px;
   top: 3rem;
   right: 1rem;
   border-radius: $radius-big;
   background-color: $dark-clr-2;
   border: $line-border;
   @include flex(column, flex-start);
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .tl-del-btn {
@@ -264,7 +265,7 @@
   padding: 1rem;
   background-color: $dark-clr-2;
   border-radius: $radius-big;
-  border: 1px solid $dark-clr-3;
+  border: $line-border;
   img {
     @include img(80px, 80px);
     border: 3px solid $accent-clr-1;
@@ -288,4 +289,10 @@
 
 .tl-contact-info {
   @include flex(row, flex-start);
+}
+
+@media screen and (max-width: 800px) {
+  .timeline-container {
+    order: 2;
+  }
 }

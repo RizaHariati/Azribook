@@ -110,7 +110,7 @@ const Friends = () => {
 
 const Photos = memo(({ guestPosts }) => {
   return (
-    <div className="account-info-list">
+    <div className="account-info-list photo">
       <div className="account-list-header">
         <h3>Photos</h3>
         {/* <Link to="/error">See All Photos</Link> */}

@@ -33,6 +33,7 @@
 
 // --------Posting---------
 .posting-container {
+  order: 0;
   @include mid-main-width;
 }
 .posting-content {
@@ -303,6 +304,12 @@ button.story {
   .select-user-link {
     width: 60%;
   }
+  .posting-container {
+    order: 0;
+  }
+  .story-container {
+    order: 1;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -317,11 +324,12 @@ button.story {
   }
   .posting-content {
     margin-top: 0rem;
-  }
-  .posting-btn-container {
-    p {
+    .line {
       display: none;
     }
+  }
+  .posting-btn-container {
+    display: none;
   }
   .select-users-banner {
     width: 100%;

@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory, useLocation } from "react-router";
 import { menuBtn_Menu, menuBtn_Create } from "../../../data/navRight-data";
 
 const imgAddress = "/assets/images/icons/navright/menu/";
 const imgAddress2 = "/assets/images/icons/navright/create/";
 const RightMenu = () => {
+  const history = useHistory();
+  const location = useLocation();
+  const handleClick = (id) => {
+    if (id === "soc-1") {
+      history.push(`${location.pathname.substring(0, 30)}/pages`);
+    } else if (id === "soc-2") {
+      history.push(`/`);
+    } else if (id === "shp-1") {
+      history.push(`${location.pathname.substring(0, 30)}/*`);
+    }
+  };
   return (
     <div className="navright-submenu-container menu">
       <h1>Menu</h1>
@@ -19,7 +31,14 @@ const RightMenu = () => {
                   const { index, link, text, icon } = item;
 
                   return (
-                    <div className="ri-sub-menu-item" key={index}>
+                    <div
+                      className={`ri-sub-menu-item ${index}`}
+                      key={index}
+                      id={index}
+                      onClick={() => {
+                        handleClick(index);
+                      }}
+                    >
                       <img
                         src={`${imgAddress}${icon}.svg`}
                         alt={text.substring(0)}

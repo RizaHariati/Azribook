@@ -80,7 +80,7 @@
 .ri-sub-menu-item {
   display: flex;
   align-items: center;
-  cursor: text;
+  cursor: none;
   color: $light-clr-1;
   border-radius: $radius-big;
   padding: 0.3rem;
@@ -90,6 +90,12 @@
   grid-template-columns: 50px auto;
   &:hover {
     background-color: $dark-clr-3;
+  }
+
+  &.soc-1,
+  &.soc-2,
+  &.shp-1 {
+    cursor: pointer;
   }
 
   &.account {

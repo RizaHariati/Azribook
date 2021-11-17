@@ -435,6 +435,16 @@ $max-width: 920px;
       }
     }
   }
+
+  .account-info-list {
+    &.photo {
+      display: none;
+    }
+  }
+
+  .account-btn {
+    height: 30px;
+  }
 }
 @media screen and (max-width: 500px) {
   .account-list-images {

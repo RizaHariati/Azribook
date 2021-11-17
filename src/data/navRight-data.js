@@ -29,12 +29,6 @@ const menuBtn_Menu = [
         icon: "newsfeed",
         text: "see relevant posts from people and Pages that you follow",
       },
-      {
-        index: "soc-5",
-        link: "events",
-        icon: "events",
-        text: "Organise or find events and other things to do online and nearby",
-      },
     ],
   },
   {

@@ -129,8 +129,8 @@
     color: $light-clr-2;
   }
 }
-// ===================RightMainMenu=============
 .submenu-main-menu {
+  display: none;
   position: absolute;
   height: calc(100vh - 3.5rem);
   left: 0;
@@ -143,8 +143,13 @@
 
   padding: 1rem;
 }
+// ===================RightMainMenu=============
 
 @media screen and (max-width: 500px) {
+  .submenu-main-menu {
+    display: block;
+  }
+
   .navright-submenu-container {
     width: 100vw;
   }

@@ -19,6 +19,12 @@
   width: 90%;
   background-color: transparent;
   border: transparent;
+
+  &.soc-1,
+  &.soc-2,
+  &.shp-1 {
+    cursor: pointer;
+  }
 }
 .link-left-more {
   cursor: pointer;

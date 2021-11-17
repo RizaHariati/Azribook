@@ -1588,6 +1588,10 @@ p {
   border: transparent;
 }
 
+.link-link-left.soc-1, .link-link-left.soc-2, .link-link-left.shp-1 {
+  cursor: pointer;
+}
+
 .link-left-more {
   cursor: pointer;
   display: -webkit-box;
@@ -4055,6 +4059,7 @@ p {
 }
 
 .submenu-main-menu {
+  display: none;
   position: absolute;
   height: calc(100vh - 3.5rem);
   left: 0;
@@ -4077,6 +4082,9 @@ p {
 }
 
 @media screen and (max-width: 500px) {
+  .submenu-main-menu {
+    display: block;
+  }
   .navright-submenu-container {
     width: 100vw;
   }

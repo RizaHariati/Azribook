@@ -1,18 +1,30 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../../context/appContext";
 import { menuBtn_Menu } from "../../../data/navRight-data";
 
 const imageAddress = "/assets/images/icons/navright/menu/";
 const menu = [...new Set([...menuBtn_Menu.map((item) => item.links)])];
-const menuA = menu[0].flat();
-const menuB = menu.filter((item, index) => index > 0).flat();
+const menuA = [...menu[0].flat(), ...menu[1].flat()];
+const menuB = menu.filter((item, index) => index > 1).flat();
 
 const LeftLinks = () => {
   const { userProfile } = useGlobalContext();
   const [showMore, setshowMore] = useState(false);
   const params = useParams().id;
+  const history = useHistory();
+  const location = useLocation();
+  const handleClick = (id) => {
+    if (id === "soc-1") {
+      history.push(`${location.pathname.substring(0, 30)}/pages`);
+    } else if (id === "soc-2") {
+      history.push(`/`);
+    } else if (id === "shp-1") {
+      history.push(`${location.pathname.substring(0, 30)}/*`);
+    }
+  };
+
   if (!userProfile) return <div className="main-left-links"></div>;
 
   const { firstName, lastName, picture } = userProfile;
@@ -31,7 +43,14 @@ const LeftLinks = () => {
       {menuA.map((item) => {
         const { index, link, icon } = item;
         return (
-          <div to={link} key={index} className="link-link-left">
+          <div
+            className={`link-link-left ${index}`}
+            key={index}
+            id={index}
+            onClick={() => {
+              handleClick(index);
+            }}
+          >
             <div className="main-left-link">
               <img src={`${imageAddress}${icon}.svg`} alt={link} />
               <p>{link}</p>

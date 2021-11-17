@@ -4,15 +4,23 @@ import { Link } from "react-router-dom";
 import { menuBtn_Account } from "../../../data/navRight-data";
 import { useGlobalContext } from "../../../context/appContext";
 import Footer from "../../Footer";
+import { useNavContext } from "../../../context/navContext";
 const imgAddress = "/assets/images/icons/navright/account/";
 
 const RightAccount = () => {
-  const history = useHistory();
   const { userProfile } = useGlobalContext();
+  const { setSelectLinks } = useNavContext();
+  const history = useHistory();
   const location = useLocation().pathname.substring(0, 30);
+
   const handleClick = () => {
     history.push("/");
+    setSelectLinks(null);
   };
+  const handleClicks = () => {
+    setSelectLinks(null);
+  };
+
   if (!userProfile) return <div className="navright-submenu-container"></div>;
   else {
     return (
@@ -20,7 +28,11 @@ const RightAccount = () => {
         <div className="right-submenu-content">
           <div className="ri-sub-menu">
             <div className="ri-sub-menu-data">
-              <Link to={`${location}/account`} className="ri-sub-link">
+              <Link
+                to={`${location}/account`}
+                className="ri-sub-link"
+                onClick={() => handleClicks()}
+              >
                 <div className="ri-sub-menu-item account">
                   <img src={userProfile.picture} alt={userProfile.firstName} />
                   <div>
@@ -33,7 +45,11 @@ const RightAccount = () => {
             {menuBtn_Account.map((menu) => {
               const { id, links } = menu;
               return (
-                <div className="ri-sub-menu-data menu" key={id}>
+                <div
+                  className="ri-sub-menu-data menu"
+                  key={id}
+                  onClick={() => handleClicks()}
+                >
                   {links.map((item) => {
                     const { index, name, icon } = item;
                     return (

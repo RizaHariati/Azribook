@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavContext } from "../../../context/navContext";
 import { menuBtn_Create } from "../../../data/navRight-data";
 const imgAddress2 = "/assets/images/icons/navright/create/";
 
 const RightCreate = () => {
+  const { setSelectLinks } = useNavContext();
+  const handleClick = () => {
+    setSelectLinks(null);
+  };
   return (
     <div className="navright-submenu-container ">
       <h1>Menu</h1>
@@ -17,7 +22,11 @@ const RightCreate = () => {
                 {links.map((item) => {
                   const { index, name, icon } = item;
                   return (
-                    <div className="ri-sub-menu-item" key={index}>
+                    <div
+                      className="ri-sub-menu-item"
+                      key={index}
+                      onClick={() => handleClick()}
+                    >
                       <div className="ri-sub-menu-icon">
                         <img src={`${imgAddress2}${icon}.svg`} alt={icon} />
                       </div>

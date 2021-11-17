@@ -9,7 +9,7 @@ const menu = [...new Set([...menuBtn_Menu.map((item) => item.links)])];
 const menuA = [...menu[0].flat(), ...menu[1].flat()];
 const menuB = menu.filter((item, index) => index > 1).flat();
 
-const LeftLinks = () => {
+const LeftLinks = ({ setSelectLinks }) => {
   const { userProfile } = useGlobalContext();
   const [showMore, setshowMore] = useState(false);
   const params = useParams().id;
@@ -23,8 +23,11 @@ const LeftLinks = () => {
     } else if (id === "shp-1") {
       history.push(`${location.pathname.substring(0, 30)}/*`);
     }
+    setSelectLinks(null);
   };
-
+  const handleClicks = () => {
+    setSelectLinks(null);
+  };
   if (!userProfile) return <div className="main-left-links"></div>;
 
   const { firstName, lastName, picture } = userProfile;
@@ -34,6 +37,9 @@ const LeftLinks = () => {
         to={`/main/${params}/account`}
         className="link-link-left"
         style={{ cursor: "pointer" }}
+        onClick={() => {
+          handleClicks();
+        }}
       >
         <div className="main-left-link ">
           <img src={picture} alt={firstName} className="account" />
@@ -62,7 +68,14 @@ const LeftLinks = () => {
         menuB.map((item) => {
           const { index, link, icon } = item;
           return (
-            <div to={link} key={index} className="link-link-left">
+            <div
+              to={link}
+              key={index}
+              className="link-link-left"
+              onClick={() => {
+                handleClicks();
+              }}
+            >
               <div className="main-left-link">
                 <img src={`${imageAddress}${icon}.svg`} alt={link} />
                 <p>{link}</p>

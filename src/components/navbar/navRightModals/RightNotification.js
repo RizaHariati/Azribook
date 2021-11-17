@@ -1,8 +1,13 @@
 import React from "react";
 import { useGlobalContext } from "../../../context/appContext";
 import moment from "moment";
+import { useNavContext } from "../../../context/navContext";
 const RightNotification = () => {
   const { commentForUser } = useGlobalContext();
+  const { setSelectLinks } = useNavContext();
+  const handleClicks = () => {
+    setSelectLinks(null);
+  };
   if (!commentForUser)
     return <div className="navright-submenu-container"></div>;
   else {
@@ -17,7 +22,13 @@ const RightNotification = () => {
                 const { picture, firstName, lastName } = owner;
                 const date = moment(publishDate).format("MMMM DD, YYYY");
                 return (
-                  <div className="ri-sub-menu-item" key={id}>
+                  <div
+                    className="ri-sub-menu-item"
+                    key={id}
+                    onClick={() => {
+                      handleClicks();
+                    }}
+                  >
                     <img
                       src={picture}
                       alt={firstName}

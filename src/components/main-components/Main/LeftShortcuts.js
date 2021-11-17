@@ -1,6 +1,6 @@
 import React from "react";
 import { mainShortcuts } from "../../../data/main-data";
-const LeftShortcuts = () => {
+const LeftShortcuts = ({ setSelectLinks }) => {
   return (
     <div className="main-left-links">
       <div className="header">

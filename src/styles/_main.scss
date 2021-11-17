@@ -329,7 +329,9 @@ button.story {
     }
   }
   .posting-btn-container {
-    display: none;
+    p {
+      display: none;
+    }
   }
   .select-users-banner {
     width: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import { useNavContext } from "../../context/navContext";
 import { Link } from "react-router-dom";
@@ -11,8 +11,7 @@ import RightCreate from "./navRightModals/RightCreate";
 
 const NavRight = () => {
   const { userProfile } = useGlobalContext();
-  const [selectLinks, setSelectLinks] = useState(null);
-
+  const { selectLinks, setSelectLinks } = useNavContext();
   const params = useParams().id;
 
   const handleLinks = (e) => {

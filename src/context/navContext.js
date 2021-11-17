@@ -4,7 +4,7 @@ const NavContext = React.createContext();
 const NavProvider = ({ children }) => {
   const [selectOther, setSelectOther] = useState("other-1");
   const [mouseOver, setMouseOver] = useState(null);
-
+  const [selectLinks, setSelectLinks] = useState(null);
   const handleClick = (e) => {
     const id = e.currentTarget.id;
     if (selectOther === id) {
@@ -30,6 +30,8 @@ const NavProvider = ({ children }) => {
         mouseOver,
         selectOther,
         setMouseOver,
+        selectLinks,
+        setSelectLinks,
       }}
     >
       {children}

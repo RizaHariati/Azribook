@@ -1423,7 +1423,7 @@ button.story {
   .posting-content .line {
     display: none;
   }
-  .posting-btn-container {
+  .posting-btn-container p {
     display: none;
   }
   .select-users-banner {

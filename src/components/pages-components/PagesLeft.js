@@ -7,7 +7,7 @@ const PagesLeft = () => {
   const [showPages, setShowPages] = useState(true);
   return (
     <div className="pages-left-container">
-      <h2>Pages</h2>
+      <h2>PAGES</h2>
 
       <div className="ri-sub-menu">
         <div className="ri-sub-menu-data">

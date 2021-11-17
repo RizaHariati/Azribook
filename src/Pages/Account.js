@@ -17,7 +17,7 @@ const Account = () => {
     let cancel = "";
     const getID = async () => {
       const par = await params;
-      if (cancel) console.log("object");
+      if (cancel) console.log("- ");
       if (!par) {
         return;
       } else {

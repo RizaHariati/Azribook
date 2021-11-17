@@ -3,6 +3,10 @@
   width: fit-content;
   @include mid-main-width;
 }
+.timeline-account {
+  @include flex(column, center);
+  grid-gap: 1rem;
+}
 .timeline-contents {
   width: 100%;
   height: fit-content;
@@ -294,5 +298,12 @@
 @media screen and (max-width: 800px) {
   .timeline-container {
     order: 2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .timeline-account {
+    @include flex(column, center);
+    grid-gap: 0.5rem;
   }
 }

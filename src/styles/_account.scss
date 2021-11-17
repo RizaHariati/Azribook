@@ -111,7 +111,6 @@ $max-width: 920px;
   @include flex(column, flex-start);
   align-items: flex-start;
   grid-gap: 1rem;
-
   z-index: 0;
 }
 

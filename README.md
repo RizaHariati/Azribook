@@ -1,6 +1,5 @@
-# AzriBook (based on facebook)
-
-This project is social media website a study on FaceBook
+# AzriBook 
+This project is social media website 
 Please visit the website on : [Azribook](https://azribook.netlify.app/)
 ## Description
 
